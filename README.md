@@ -1,1 +1,1 @@
-# ddd-api-with-go
+# ddd-api-with-go-gin
