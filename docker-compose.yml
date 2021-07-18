@@ -1,0 +1,24 @@
+version: "3.7"
+
+services:
+
+  # Go開発用サービス
+  go-app:
+    build:
+      context: .
+      dockerfile: ./build/Dockerfile
+      target: ${APP_ENV} # .envファイルから参照．
+    container_name: ddd-api-with-go-gin
+    env_file:
+      - .env
+      - .env.docker
+    image: ddd-api-with-go-gin:latest
+    networks:
+      - default
+    tty: true
+    volumes:
+      - .:/go/src
+
+networks:
+  default:
+    name: ddd-api-with-go-gin
