@@ -24,9 +24,11 @@ COPY . .
 RUN go build -x -a -tags netgo -installsuffix netgo -o /go/bin ./cmd
 
 #===================
-# Base Stage
+# Production Stage
 #===================
-FROM golang:${GO_VERSION}-alpine as base
+FROM golang:${GO_VERSION}-alpine
+
+LABEL maintainer=${LABEL}
 
 WORKDIR /go/src
 
@@ -34,27 +36,5 @@ WORKDIR /go/src
 ENV PATH $PATH:/go/bin
 
 COPY --from=build /go ../
-
-#===================
-# Develop Stage
-#===================
-FROM base as dev
-LABEL maintainer=${LABEL}
-
-CMD ["/go/bin/cmd"]
-
-#===================
-# Staging Stage
-#===================
-FROM base as stg
-LABEL maintainer=${LABEL}
-
-CMD ["/go/bin/cmd"]
-
-#===================
-# Production Stage
-#===================
-FROM base as prd
-LABEL maintainer=${LABEL}
 
 CMD ["/go/bin/cmd"]

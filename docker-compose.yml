@@ -7,7 +7,6 @@ services:
     build:
       context: .
       dockerfile: ./build/Dockerfile
-      target: ${APP_ENV} # .envファイルから参照．
     container_name: ddd-api-with-go-gin
     env_file:
       - .env
