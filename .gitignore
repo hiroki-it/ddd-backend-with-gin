@@ -1,0 +1,11 @@
+# ディレクトリ
+**/air_tmp
+**/.idea
+
+# ファイル
+process.yml
+.air.toml
+.env
+.env.docker
+*.out
+*.html
