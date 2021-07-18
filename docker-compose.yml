@@ -3,11 +3,11 @@ version: "3.7"
 services:
 
   # Go開発用サービス
-  go-app:
+  app:
     build:
       context: .
       dockerfile: ./build/Dockerfile
-    container_name: ddd-api-with-go-gin
+    container_name: ddd-api-with-go-gin-app
     env_file:
       - .env
       - .env.docker
