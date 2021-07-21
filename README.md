@@ -17,7 +17,7 @@ $ docker-compose run -d
 コンテナで，アプリケーションで使用するモジュールをインストールします．
 
 ```shell
-$ docker-compose run --rm app go mod download -x
+$ docker-compose run --rm api go mod download -x
 ```
 
 <br>
@@ -31,5 +31,5 @@ $ docker-compose run --rm app go mod download -x
 ツールとして，[air](https://github.com/cosmtrek/air) を使用いたしました．
 
 ```shell
-$ docker-compose run --rm app air -c .air.toml
+$ docker-compose run --rm api air -c .air.toml
 ```
