@@ -1,13 +1,18 @@
 package main
 
 import (
-	"log"
 	"os"
 
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure"
 )
 
 func main() {
+
+	log, err := infrastructure.NewLogger()
+
+	if err != nil {
+		panic(err)
+	}
 
 	db, err := infrastructure.NewDB(
 		os.Getenv("DB_USER"),
@@ -18,7 +23,7 @@ func main() {
 	)
 
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal(err.Error())
 	}
 
 	defer db.Close()
@@ -26,6 +31,6 @@ func main() {
 	err = db.AutoMigrate()
 
 	if err != nil {
-		log.Fatal(err)
+		log.Fatal(err.Error())
 	}
 }
