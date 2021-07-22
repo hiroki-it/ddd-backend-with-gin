@@ -8,6 +8,8 @@ services:
       context: .
       dockerfile: build/api/Dockerfile
     container_name: ddd-api-with-go-gin-api
+    depends_on:
+      - db
     env_file:
       - .env
       - .env.docker
