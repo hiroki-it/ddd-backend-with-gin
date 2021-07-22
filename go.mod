@@ -8,6 +8,4 @@ require (
 	gorm.io/gorm v1.21.11
 )
 
-replace (
-	github.com/hiroki-it/ddd-api-with-go-gin => /
-)
+replace github.com/hiroki-it/ddd-api-with-go-gin => /
