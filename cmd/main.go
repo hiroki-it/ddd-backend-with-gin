@@ -12,6 +12,7 @@ func main() {
 		panic(err)
 	}
 
+	// データベースに接続します．
 	db, err := infrastructure.NewDB()
 
 	if err != nil {
