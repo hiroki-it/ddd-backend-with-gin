@@ -14,6 +14,7 @@ services:
       - .env
       - .env.docker
     image: ddd-api-with-go-gin:latest
+    hostname: api
     networks:
       - default
     tty: true
@@ -34,6 +35,7 @@ services:
       MYSQL_PASSWORD: ${DB_PASSWORD}
       TZ: "Asia/Tokyo"
     image: mysql:5.7
+    hostname: db
     ports:
       - "3308:3306"
     networks:
