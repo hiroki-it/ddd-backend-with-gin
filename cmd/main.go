@@ -20,7 +20,7 @@ func main() {
 	err = db.AutoMigrate()
 
 	if err != nil {
-		log.Fatal(err.Error())
+		logger.Log.Fatal(err.Error())
 	}
 
 	// コントローラにルーティングします．
