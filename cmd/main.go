@@ -12,7 +12,7 @@ func main() {
 	db, err := infrastructure.NewDB()
 
 	if err != nil {
-		logger.Log.Fatal(err.Error())
+		logger.Log().Fatal(err.Error())
 	}
 
 	defer db.Close()
@@ -20,13 +20,13 @@ func main() {
 	err = db.AutoMigrate()
 
 	if err != nil {
-		logger.Log.Fatal(err.Error())
+		logger.Log().Fatal(err.Error())
 	}
 
 	// コントローラにルーティングします．
 	err = infrastructure.NewRouter().Engine().Run()
 
 	if err != nil {
-		logger.Log.Fatal(err.Error())
+		logger.Log().Fatal(err.Error())
 	}
 }

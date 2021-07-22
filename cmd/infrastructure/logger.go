@@ -5,7 +5,7 @@ import (
 )
 
 type Logger struct {
-	Log *zap.Logger
+	log *zap.Logger
 }
 
 // NewLogger コンストラクタ
@@ -14,6 +14,11 @@ func NewLogger() *Logger {
 	log, _ := zap.NewDevelopment()
 
 	return &Logger{
-		Log: log,
+		log: log,
 	}
+}
+
+// Log logを返却します．
+func (l *Logger) Log() *zap.Logger {
+	return l.log
 }
