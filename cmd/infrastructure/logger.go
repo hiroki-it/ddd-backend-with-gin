@@ -1,9 +1,19 @@
 package infrastructure
 
-import "go.uber.org/zap"
+import (
+	"go.uber.org/zap"
+)
+
+type Logger struct {
+	Log *zap.Logger
+}
 
 // NewLogger コンストラクタ
-func NewLogger() (*zap.Logger, error) {
-	log, err := zap.NewDevelopment()
-	return log, err
+func NewLogger() *Logger {
+
+	log, _ := zap.NewDevelopment()
+
+	return &Logger{
+		Log: log,
+	}
 }

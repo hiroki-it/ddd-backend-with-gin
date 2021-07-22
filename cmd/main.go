@@ -6,17 +6,13 @@ import (
 
 func main() {
 
-	log, err := infrastructure.NewLogger()
-
-	if err != nil {
-		panic(err)
-	}
+	logger := infrastructure.NewLogger()
 
 	// データベースに接続します．
 	db, err := infrastructure.NewDB()
 
 	if err != nil {
-		log.Fatal(err.Error())
+		logger.Log.Fatal(err.Error())
 	}
 
 	defer db.Close()
@@ -31,6 +27,6 @@ func main() {
 	err = infrastructure.NewRouter().Engine().Run()
 
 	if err != nil {
-		log.Fatal(err.Error())
+		logger.Log.Fatal(err.Error())
 	}
 }
