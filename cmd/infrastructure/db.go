@@ -7,7 +7,7 @@ import (
 )
 
 type DB struct {
-	persist *gorm.DB
+	conn *gorm.DB
 }
 
 // NewDB コンストラクタ
@@ -15,26 +15,26 @@ func NewDB(dbUser string, dbPassword string, dbHost string, dbPort string, dbDat
 
 	dsn := fmt.Sprintf("%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local", dbPassword, dbUser, dbHost, dbPort, dbDatabase)
 
-	persist, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
+	conn, err := gorm.Open(mysql.Open(dsn), &gorm.Config{})
 
 	if err != nil {
 		return nil, err
 	}
 
 	return &DB{
-		persist: persist,
+		conn: conn,
 	}, nil
 }
 
 // AutoMigrate マイグレーションを実行します．
 func (d *DB) AutoMigrate() error {
-	return d.persist.AutoMigrate()
+	return d.conn.AutoMigrate()
 }
 
 // Close DBとの接続を終了します．
 func (d *DB) Close() error {
 
-	sqlDb, err := d.persist.DB()
+	sqlDb, err := d.conn.DB()
 
 	if err != nil {
 		return err
@@ -43,7 +43,7 @@ func (d *DB) Close() error {
 	return sqlDb.Close()
 }
 
-// Persist persistを返却します．
-func (d *DB) Persist() *gorm.DB {
-	return d.persist
+// Conn connを返却します．
+func (d *DB) Conn() *gorm.DB {
+	return d.conn
 }
