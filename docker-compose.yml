@@ -6,7 +6,7 @@ services:
   api:
     build:
       context: .
-      dockerfile: ./build/Dockerfile
+      dockerfile: build/app/Dockerfile
     container_name: ddd-api-with-go-gin-app
     env_file:
       - .env

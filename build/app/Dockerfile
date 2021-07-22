@@ -17,7 +17,7 @@ COPY go.mod go.sum ./
 # ライブラリをインストールする．
 RUN go get github.com/cosmtrek/air@v1.27.3
 
-COPY . .
+COPY .. .
 
 # ビルドのアーティファクトを/go/binに配置する．
 # NOTE: netパッケージは標準で動的リンクのため，静的リンクを明示的に指定する必要がある．
