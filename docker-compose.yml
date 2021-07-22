@@ -40,7 +40,6 @@ services:
       - default
     volumes:
       - db_volume:/var/www/lib/mysql
-      - ./build/docker-entry-point-initdb.d
 
 volumes:
   db_volume:
