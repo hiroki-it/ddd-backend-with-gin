@@ -5,7 +5,7 @@ import (
 )
 
 type Router struct {
-	engine *gin.Engine
+	route *gin.Engine
 }
 
 // NewRouter コンストラクタ
@@ -14,11 +14,11 @@ func NewRouter() *Router {
 	r := gin.Default()
 
 	return &Router{
-		engine: r,
+		route: r,
 	}
 }
 
-// Engine engineを返却します．
-func (r *Router) Engine() *gin.Engine {
-	return r.engine
+// Route routeを返却します．
+func (r *Router) Route() *gin.Engine {
+	return r.route
 }
