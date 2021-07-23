@@ -1,1 +1,4 @@
-package user
+package repositories
+
+type UserRepository interface {
+}
