@@ -24,7 +24,7 @@ func main() {
 	}
 
 	// コントローラにルーティングします．
-	err = infrastructure.NewRouter().Engine().Run()
+	err = infrastructure.NewRouter().Route().Run()
 
 	if err != nil {
 		logger.Log().Fatal(err.Error())
