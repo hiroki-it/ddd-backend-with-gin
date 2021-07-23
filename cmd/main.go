@@ -1,7 +1,9 @@
 package main
 
 import (
+	"github.com/gin-gonic/gin"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure"
+	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure/routers/user"
 )
 
 func main() {
@@ -23,8 +25,12 @@ func main() {
 		logger.Log().Fatal(err.Error())
 	}
 
+	route := gin.Default()
+
 	// コントローラにルーティングします．
-	err = infrastructure.NewRouter().Route().Run()
+	user.UserRouter(route, db)
+
+	err = route.Run()
 
 	if err != nil {
 		logger.Log().Fatal(err.Error())

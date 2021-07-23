@@ -9,7 +9,7 @@ import (
 	usecase "github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/usecases/user"
 )
 
-// UserRouter Userに関してルーティングを実行します．
+// UserRouter ユーザに関してルーティングを実行します．
 func UserRouter(router *gin.Engine, db *infrastructure.DB) {
 
 	userRouter := router.Group("/users")
