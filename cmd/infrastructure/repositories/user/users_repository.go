@@ -9,6 +9,8 @@ type UserRepository struct {
 	db *infrastructure.DB
 }
 
+var _ repositories.UserRepository = &UserRepository{}
+
 // NewUserRepository コンストラクタ
 func NewUserRepository(db *infrastructure.DB) repositories.UserRepository {
 
