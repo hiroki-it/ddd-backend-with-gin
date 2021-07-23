@@ -1,1 +1,1 @@
-package entities
+package user
