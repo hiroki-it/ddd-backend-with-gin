@@ -2,10 +2,6 @@ package controllers
 
 import (
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/ids"
-	"net/http"
-	"strconv"
-
-	"github.com/gin-gonic/gin"
 
 	usecases "github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/usecases/user"
 )
@@ -29,11 +25,11 @@ func (ctl *UserController) GetUser(c *gin.Context) {
 	user, err := ctl.userUsecase.GetUser(ids.UserId(id))
 
 	if err != nil {
-		c.JSON(http.StatusBadRequest, gin.H{"error": err})
+		c.JSON(400, gin.H{"errors": err})
 		return
 	}
 
-	c.JSON(http.StatusOK, user)
+	c.JSON(200, user)
 	return
 }
 
