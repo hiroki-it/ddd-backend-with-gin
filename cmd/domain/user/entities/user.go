@@ -1,6 +1,7 @@
 package entities
 
 import (
+	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/ids"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/values"
 )
@@ -10,6 +11,8 @@ type User struct {
 	name       values.UserName
 	genderType values.UserGenderType
 }
+
+var _ domain.Entity = &User{}
 
 // NewUser コンストラクタ
 func NewUser(userId ids.UserId, userName values.UserName, userGenderType values.UserGenderType) *User {
@@ -27,6 +30,6 @@ func (u *User) Id() ids.UserId {
 }
 
 // Equals 等価性を検証します．
-func (u *User) Equals(target User) bool {
-	return u.id == target.Id()
+func (u *User) Equals(target domain.Entity) bool {
+	return u.id == target.(*User).Id()
 }
