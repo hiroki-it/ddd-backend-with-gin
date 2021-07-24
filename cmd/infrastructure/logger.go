@@ -9,10 +9,10 @@ type Logger struct {
 }
 
 // NewLogger コンストラクタ
-func NewLogger() (*Logger,error) {
+func NewLogger() (*Logger, error) {
 	log, err := zap.NewDevelopment()
 
-	if err !=nil{
+	if err != nil {
 		return nil, err
 	}
 
