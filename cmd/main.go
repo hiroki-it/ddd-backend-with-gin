@@ -8,13 +8,17 @@ import (
 
 func main() {
 
-	logger := infrastructure.NewLogger()
-
 	// データベースに接続します．
 	db, err := infrastructure.NewDB()
 
 	if err != nil {
-		logger.Log().Fatal(err.Error())
+		panic(err)
+	}
+
+	logger, err := infrastructure.NewLogger()
+
+	if err != nil {
+		panic(err)
 	}
 
 	// 最後にデータベースとの接続を切断します．
