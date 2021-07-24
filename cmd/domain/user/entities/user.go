@@ -16,7 +16,6 @@ var _ domain.Entity = &User{}
 
 // NewUser コンストラクタ
 func NewUser(userId ids.UserId, userName values.UserName, userGenderType values.UserGenderType) *User {
-
 	return &User{
 		id:         userId,
 		name:       userName,

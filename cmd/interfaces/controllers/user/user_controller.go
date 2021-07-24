@@ -24,7 +24,6 @@ func NewUserController(userUsecase *usecases.UserUsecase) *UserController {
 
 // GetUser 単一のユーザを取得します．
 func (ctl *UserController) GetUser(c *gin.Context) {
-
 	id, _ := strconv.Atoi(c.Param("id"))
 
 	user, err := ctl.userUsecase.GetUser(ids.UserId(id))

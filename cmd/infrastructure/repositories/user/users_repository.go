@@ -13,7 +13,6 @@ var _ repositories.UserRepository = &UserRepository{}
 
 // NewUserRepository コンストラクタ
 func NewUserRepository(db *infrastructure.DB) repositories.UserRepository {
-
 	return &UserRepository{
 		db: db,
 	}

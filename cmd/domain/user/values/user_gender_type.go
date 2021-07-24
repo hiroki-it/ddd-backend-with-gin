@@ -8,7 +8,6 @@ const (
 )
 
 func (ugt UserGenderType) String() string {
-
 	switch ugt {
 	case MALE:
 		return "男性"

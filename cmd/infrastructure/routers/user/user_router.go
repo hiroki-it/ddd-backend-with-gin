@@ -11,7 +11,6 @@ import (
 
 // UserRouter ユーザに関してルーティングを実行します．
 func UserRouter(router *gin.Engine, db *infrastructure.DB) {
-
 	userRouter := router.Group("/users")
 	{
 		c := controllers.NewUserController(usecase.NewUserUsecase(repositories.NewUserRepository(db)))

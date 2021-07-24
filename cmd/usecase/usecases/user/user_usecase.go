@@ -12,7 +12,6 @@ type UserUsecase struct {
 
 // NewUserUsecase コンストラクタ
 func NewUserUsecase(userRepository repositories.UserRepository) *UserUsecase {
-
 	return &UserUsecase{
 		userRepository: userRepository,
 	}

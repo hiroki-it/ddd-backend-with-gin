@@ -14,7 +14,6 @@ type DB struct {
 
 // NewDB コンストラクタ
 func NewDB() (*DB, error) {
-
 	dsn := fmt.Sprintf(
 		"%s:%s@tcp(%s:%s)/%s?charset=utf8&parseTime=True&loc=Local",
 		os.Getenv("DB_PASSWORD"),
@@ -37,7 +36,6 @@ func NewDB() (*DB, error) {
 
 // AutoMigrate マイグレーションを実行します．
 func (d *DB) AutoMigrate() error {
-
 	err := d.conn.AutoMigrate()
 
 	if err != nil {
@@ -49,7 +47,6 @@ func (d *DB) AutoMigrate() error {
 
 // Close DBとの接続を終了します．
 func (d *DB) Close() error {
-
 	sqlDb, err := d.conn.DB()
 
 	if err != nil {

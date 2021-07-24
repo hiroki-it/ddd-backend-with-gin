@@ -8,7 +8,6 @@ type UserInput struct {
 
 // NewUserInput コンストラクタ
 func NewUserInput(userId int, userName string, userGenderType int) *UserInput {
-
 	return &UserInput{
 		userId:         userId,
 		userName:       userName,

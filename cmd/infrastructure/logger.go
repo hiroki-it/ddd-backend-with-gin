@@ -10,7 +10,6 @@ type Logger struct {
 
 // NewLogger コンストラクタ
 func NewLogger() *Logger {
-
 	log, _ := zap.NewDevelopment()
 
 	return &Logger{
