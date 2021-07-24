@@ -7,10 +7,6 @@ const (
 	FEMALE
 )
 
-func NewUserGenderType(userGenderType int) UserGenderType {
-	return UserGenderType(userGenderType)
-}
-
 func (ugt UserGenderType) String() string {
 
 	switch ugt {
