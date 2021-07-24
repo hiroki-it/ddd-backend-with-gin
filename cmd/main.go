@@ -17,7 +17,13 @@ func main() {
 		logger.Log().Fatal(err.Error())
 	}
 
-	defer db.Close()
+	// 最後にデータベースとの接続を切断します．
+	defer func(db *infrastructure.DB) {
+		err := db.Close()
+		if err != nil {
+			logger.Log().Fatal(err.Error())
+		}
+	}(db)
 
 	err = db.AutoMigrate()
 
