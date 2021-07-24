@@ -25,7 +25,7 @@ func main() {
 	defer func(db *infrastructure.DB) {
 		err := db.Close()
 		if err != nil {
-			logger.Log().Fatal(err.Error())
+			logger.Log().Error(err.Error())
 		}
 	}(db)
 
@@ -41,6 +41,6 @@ func main() {
 	err = router.Run()
 
 	if err != nil {
-		logger.Log().Fatal(err.Error())
+		logger.Log().Error(err.Error())
 	}
 }
