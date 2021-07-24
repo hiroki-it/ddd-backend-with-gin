@@ -13,7 +13,6 @@ var _ domain.Value = &UserName{}
 
 // NewUserName コンストラクタ
 func NewUserName(firstName string, lastName string, firstKanaName string, lastKanaName string) *UserName {
-
 	return &UserName{
 		firstName:     firstName,
 		lastName:      lastName,
