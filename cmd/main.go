@@ -3,7 +3,7 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure"
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure/routers/user"
+	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure/routers"
 )
 
 func main() {
@@ -25,12 +25,10 @@ func main() {
 		logger.Log().Fatal(err.Error())
 	}
 
-	route := gin.Default()
-
 	// コントローラにルーティングします．
-	user.UserRouter(route, db)
+	router := routers.NewRouter(gin.Default(), db)
 
-	err = route.Run()
+	err = router.Run()
 
 	if err != nil {
 		logger.Log().Fatal(err.Error())
