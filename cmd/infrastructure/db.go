@@ -37,7 +37,14 @@ func NewDB() (*DB, error) {
 
 // AutoMigrate マイグレーションを実行します．
 func (d *DB) AutoMigrate() error {
-	return d.conn.AutoMigrate()
+
+	err := d.conn.AutoMigrate()
+
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
 
 // Close DBとの接続を終了します．
@@ -49,7 +56,13 @@ func (d *DB) Close() error {
 		return err
 	}
 
-	return sqlDb.Close()
+	err = sqlDb.Close()
+
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
 
 // Conn connを返却します．
