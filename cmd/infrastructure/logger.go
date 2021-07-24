@@ -9,12 +9,16 @@ type Logger struct {
 }
 
 // NewLogger コンストラクタ
-func NewLogger() *Logger {
-	log, _ := zap.NewDevelopment()
+func NewLogger() (*Logger,error) {
+	log, err := zap.NewDevelopment()
+
+	if err !=nil{
+		return nil, err
+	}
 
 	return &Logger{
 		log: log,
-	}
+	}, nil
 }
 
 // Log logを返却します．
