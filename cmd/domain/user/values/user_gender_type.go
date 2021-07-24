@@ -7,6 +7,7 @@ const (
 	FEMALE
 )
 
+// String 区分値を返却します．
 func (ugt UserGenderType) String() string {
 	switch ugt {
 	case MALE:
