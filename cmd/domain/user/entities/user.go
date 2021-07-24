@@ -29,7 +29,7 @@ func (u *User) Id() ids.UserId {
 	return u.id
 }
 
-// Equals 等価性を検証します．
-func (u *User) Equals(target domain.Entity) bool {
+// Equal 等価性を検証します．
+func (u *User) Equal(target domain.Entity) bool {
 	return u.id == target.(*User).Id()
 }

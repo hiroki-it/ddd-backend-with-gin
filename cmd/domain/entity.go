@@ -1,7 +1,6 @@
 package domain
 
 type Entity interface {
-
-	// Equals 等価性を検証します．
-	Equals(target Entity) bool
+	// Equal 等価性を検証します．
+	Equal(target Entity) bool
 }
