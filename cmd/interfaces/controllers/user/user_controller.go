@@ -23,8 +23,8 @@ func NewUserController(userUsecase *usecases.UserUsecase) *UserController {
 }
 
 // GetUser 単一のユーザを取得します．
-func (ctl *UserController) GetUser(c *gin.Context) {
-	id, _ := strconv.Atoi(c.Param("id"))
+func (uc *UserController) GetUser(ctx *gin.Context) {
+	userId, ok := ctx.Get("id")
 
 	if !ok {
 		uc.SendErrorJson(ctx, 400, []string{"Parameters are not found."})
