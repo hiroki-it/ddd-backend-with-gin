@@ -1,12 +1,15 @@
 package controllers
 
 import (
+	"github.com/gin-gonic/gin"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/ids"
+	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/interfaces/controllers"
 
 	usecases "github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/usecases/user"
 )
 
 type UserController struct {
+	*controllers.Controller
 	userUsecase *usecases.UserUsecase
 }
 
@@ -14,6 +17,7 @@ type UserController struct {
 func NewUserController(userUsecase *usecases.UserUsecase) *UserController {
 
 	return &UserController{
+		Controller:  &controllers.Controller{},
 		userUsecase: userUsecase,
 	}
 }
@@ -22,14 +26,19 @@ func NewUserController(userUsecase *usecases.UserUsecase) *UserController {
 func (ctl *UserController) GetUser(c *gin.Context) {
 	id, _ := strconv.Atoi(c.Param("id"))
 
-	user, err := ctl.userUsecase.GetUser(ids.UserId(id))
-
-	if err != nil {
-		c.JSON(400, gin.H{"errors": err})
+	if !ok {
+		uc.SendErrorJson(ctx, 400, []string{"Parameters are not found."})
 		return
 	}
 
-	c.JSON(200, user)
+	user, err := uc.userUsecase.GetUser(userId.(ids.UserId))
+
+	if err != nil {
+		uc.SendErrorJson(ctx, 400, []string{err.Error()})
+		return
+	}
+
+	uc.SendJson(ctx, 200, user)
 	return
 }
 
