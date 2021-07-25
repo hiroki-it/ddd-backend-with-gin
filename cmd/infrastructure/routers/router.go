@@ -14,7 +14,6 @@ type Router struct {
 
 // NewRouter コンストラクタ
 func NewRouter(router *gin.Engine, db *infrastructure.DB) *Router {
-
 	return &Router{
 		router: router,
 		db:     db,
