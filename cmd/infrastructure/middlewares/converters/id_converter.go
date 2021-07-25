@@ -12,7 +12,7 @@ func ConvertId() gin.HandlerFunc {
 		id, err := strconv.Atoi(ctx.Param("id"))
 
 		if err != nil {
-			c.JSON(400, gin.H{"errors": err})
+			_ = ctx.Error(err)
 			return
 		}
 
