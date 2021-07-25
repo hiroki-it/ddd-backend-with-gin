@@ -43,17 +43,17 @@ func (uc *UserController) GetUser(ctx *gin.Context) {
 }
 
 // GetUsers 複数のユーザを取得します．
-func (ctl *UserController) GetUsers(c *gin.Context) {
+func (uc *UserController) GetUsers(ctx *gin.Context) {
 }
 
 // CreateUsers ユーザを作成します．
-func (ctl *UserController) CreateUsers(c *gin.Context) {
+func (uc *UserController) CreateUsers(ctx *gin.Context) {
 }
 
 // UpdateUser ユーザを更新します．
-func (ctl *UserController) UpdateUser(c *gin.Context) {
+func (uc *UserController) UpdateUser(ctx *gin.Context) {
 }
 
 // DeleteUser ユーザを削除します．
-func (ctl *UserController) DeleteUser(c *gin.Context) {
+func (uc *UserController) DeleteUser(ctx *gin.Context) {
 }
