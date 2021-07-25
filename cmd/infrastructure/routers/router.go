@@ -24,5 +24,6 @@ func NewRouter(router *gin.Engine, db *infrastructure.DB) *Router {
 func (r *Router) Run() error {
 	r.router.Use(converters.ConvertId())
 	user.UserRouter(r.router, r.db)
+
 	return r.router.Run()
 }
