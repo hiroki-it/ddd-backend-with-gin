@@ -31,7 +31,9 @@ func (uc *UserController) GetUser(ctx *gin.Context) {
 		return
 	}
 
-	user, err := uc.userInteractor.GetUser(userId.(ids.UserId))
+	gui := inputs.NewGetUserInput(userId.(int))
+
+	user, err := uc.userInteractor.GetUser(gui)
 
 	if err != nil {
 		uc.SendErrorJson(ctx, 400, []string{err.Error()})

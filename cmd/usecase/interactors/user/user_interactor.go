@@ -2,8 +2,9 @@ package usecases
 
 import (
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/entities"
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/ids"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/repositories"
+
+	inputs "github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/inputs/user"
 )
 
 type UserInteractor struct {
@@ -18,6 +19,6 @@ func NewUserInteractor(userRepository repositories.UserRepository) *UserInteract
 }
 
 // GetUser ユーザを取得します．
-func (uu *UserInteractor) GetUser(userId ids.UserId) (*entities.User, error) {
+func (uu *UserInteractor) GetUser(input *inputs.GetUserInput) (*entities.User, error) {
 	return nil, nil
 }

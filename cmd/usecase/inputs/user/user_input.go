@@ -1,16 +1,14 @@
 package inputs
 
-type UserInput struct {
-	userId         int
-	userName       string
-	userGenderType int
+import "github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/ids"
+
+type GetUserInput struct {
+	userId ids.UserId
 }
 
-// NewUserInput コンストラクタ
-func NewUserInput(userId int, userName string, userGenderType int) *UserInput {
-	return &UserInput{
-		userId:         userId,
-		userName:       userName,
-		userGenderType: userGenderType,
+// NewGetUserInput コンストラクタ
+func NewGetUserInput(userId int) *GetUserInput {
+	return &GetUserInput{
+		userId: ids.UserId(userId),
 	}
 }
