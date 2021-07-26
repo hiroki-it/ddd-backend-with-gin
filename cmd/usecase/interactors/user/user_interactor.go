@@ -6,18 +6,18 @@ import (
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/repositories"
 )
 
-type UserUsecase struct {
+type UserInteractor struct {
 	userRepository repositories.UserRepository
 }
 
-// NewUserUsecase コンストラクタ
-func NewUserUsecase(userRepository repositories.UserRepository) *UserUsecase {
-	return &UserUsecase{
+// NewUserInteractor コンストラクタ
+func NewUserInteractor(userRepository repositories.UserRepository) *UserInteractor {
+	return &UserInteractor{
 		userRepository: userRepository,
 	}
 }
 
 // GetUser ユーザを取得します．
-func (uu *UserUsecase) GetUser(userId ids.UserId) (*entities.User, error) {
+func (uu *UserInteractor) GetUser(userId ids.UserId) (*entities.User, error) {
 	return nil, nil
 }

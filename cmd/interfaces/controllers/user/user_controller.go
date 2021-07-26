@@ -5,20 +5,20 @@ import (
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/ids"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/interfaces/controllers"
 
-	usecases "github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/usecases/user"
+	interactors "github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/interactors/user"
 )
 
 type UserController struct {
 	*controllers.Controller
-	userUsecase *usecases.UserUsecase
+	userInteractor *interactors.UserInteractor
 }
 
 // NewUserController コンストラクタ
-func NewUserController(userUsecase *usecases.UserUsecase) *UserController {
+func NewUserController(userInteractor *interactors.UserInteractor) *UserController {
 
 	return &UserController{
 		Controller:  &controllers.Controller{},
-		userUsecase: userUsecase,
+		userInteractor: userInteractor,
 	}
 }
 
@@ -31,7 +31,7 @@ func (uc *UserController) GetUser(ctx *gin.Context) {
 		return
 	}
 
-	user, err := uc.userUsecase.GetUser(userId.(ids.UserId))
+	user, err := uc.userInteractor.GetUser(userId.(ids.UserId))
 
 	if err != nil {
 		uc.SendErrorJson(ctx, 400, []string{err.Error()})
