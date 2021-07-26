@@ -2,9 +2,9 @@ package controllers
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/ids"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/interfaces/controllers"
 
+	inputs "github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/inputs/user"
 	interactors "github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/interactors/user"
 )
 
