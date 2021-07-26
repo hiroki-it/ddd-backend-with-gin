@@ -17,7 +17,7 @@ type UserController struct {
 func NewUserController(userInteractor *interactors.UserInteractor) *UserController {
 
 	return &UserController{
-		Controller:  &controllers.Controller{},
+		Controller:     &controllers.Controller{},
 		userInteractor: userInteractor,
 	}
 }
