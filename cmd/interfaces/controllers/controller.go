@@ -5,8 +5,8 @@ import "github.com/gin-gonic/gin"
 type Controller struct{}
 
 // SendJson 正常系レスポンスを返却します．各APIのレスポンスのデータ構造を統一します．
-func (c *Controller) SendJson(ctx *gin.Context, status int, data map[string]interface{}) {
-	ctx.JSON(status, data)
+func (c *Controller) SendJson(ctx *gin.Context, status int, presenter presenter.Presenter) {
+	ctx.JSON(status, presenter)
 }
 
 // SendErrorJson 異常系レスポンスを返却します．各APIのレスポンスのデータ構造を統一します．
