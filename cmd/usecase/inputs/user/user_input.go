@@ -1,14 +1,18 @@
 package inputs
 
-import "github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/ids"
-
 type GetUserInput struct {
-	userId ids.UserId
+	UserId int `binding:"required,min=1"`
 }
 
-// NewGetUserInput コンストラクタ
-func NewGetUserInput(userId int) *GetUserInput {
-	return &GetUserInput{
-		userId: ids.UserId(userId),
-	}
+type CreateUserInput struct {
+	UserName       string `json:"name" binding:"required"`
+	UserGenderType int    `json:"gender_type" binding:"required,min=1"`
+}
+
+type UpdateUserInput struct {
+	UserId int `json:"id" binding:"required,min=1"`
+}
+
+type DeleteUserInput struct {
+	UserId int `json:"id" binding:"required,min=1"`
 }
