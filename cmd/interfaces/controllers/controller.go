@@ -1,6 +1,10 @@
 package controllers
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/gin-gonic/gin"
+
+	presenter "github.com/hiroki-it/ddd-api-with-go-gin/cmd/interfaces/presenters"
+)
 
 type Controller struct{}
 
