@@ -31,7 +31,7 @@ func (uc *UserController) GetUser(ctx *gin.Context) {
 		return
 	}
 
-	gui := inputs.NewGetUserInput(userId.(int))
+	gui := &inputs.GetUserInput{UserId: userId.(int)}
 
 	user, err := uc.userInteractor.GetUser(gui)
 
