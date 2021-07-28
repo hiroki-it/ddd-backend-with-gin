@@ -28,6 +28,11 @@ func (u *User) Id() ids.UserId {
 	return u.id
 }
 
+// FullName 氏名を返却します．
+func (u *User) FullName() string {
+	return u.name.FullName()
+}
+
 // Equal 等価性を検証します．
 func (u *User) Equal(target domain.Entity) bool {
 	return u.id == target.(*User).Id()
