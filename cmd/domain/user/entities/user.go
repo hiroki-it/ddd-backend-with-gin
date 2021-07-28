@@ -33,6 +33,11 @@ func (u *User) FullName() string {
 	return u.name.FullName()
 }
 
+// GenderType 性別を返却します．
+func (u *User) GenderType() string {
+	return u.genderType.String()
+}
+
 // Equal 等価性を検証します．
 func (u *User) Equal(target domain.Entity) bool {
 	return u.id == target.(*User).Id()
