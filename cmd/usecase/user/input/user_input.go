@@ -1,4 +1,4 @@
-package inputs
+package input
 
 type GetUserInput struct {
 	UserId int `binding:"required,min=1"`

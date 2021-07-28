@@ -1,24 +1,23 @@
-package controllers
+package controller
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/interfaces/controllers"
-
-	presenters "github.com/hiroki-it/ddd-api-with-go-gin/cmd/interfaces/presenters/user"
-	inputs "github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/inputs/user"
-	interactors "github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/interactors/user"
+	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/interfaces"
+	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/interfaces/user/presenter"
+	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/user/input"
+	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/user/interactor"
 )
 
 type UserController struct {
-	*controllers.Controller
-	userInteractor *interactors.UserInteractor
+	*interfaces.Controller
+	userInteractor *interactor.UserInteractor
 }
 
 // NewUserController コンストラクタ
-func NewUserController(userInteractor *interactors.UserInteractor) *UserController {
+func NewUserController(userInteractor *interactor.UserInteractor) *UserController {
 
 	return &UserController{
-		Controller:     &controllers.Controller{},
+		Controller:     &interfaces.Controller{},
 		userInteractor: userInteractor,
 	}
 }
@@ -32,7 +31,7 @@ func (uc *UserController) GetUser(ctx *gin.Context) {
 		return
 	}
 
-	gui := &inputs.GetUserInput{UserId: userId.(int)}
+	gui := &input.GetUserInput{UserId: userId.(int)}
 
 	user, err := uc.userInteractor.GetUser(gui)
 
@@ -41,7 +40,7 @@ func (uc *UserController) GetUser(ctx *gin.Context) {
 		return
 	}
 
-	uc.SendJson(ctx, 200, presenters.ToGetUserPresenter(user))
+	uc.SendJson(ctx, 200, presenter.ToGetUserPresenter(user))
 	return
 }
 

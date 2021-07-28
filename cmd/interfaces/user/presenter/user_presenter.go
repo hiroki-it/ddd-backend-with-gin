@@ -1,8 +1,8 @@
-package presenters
+package presenter
 
 import (
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/entities"
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/interfaces/presenters"
+	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/interfaces"
 )
 
 type getUserPresenter struct {
@@ -32,7 +32,7 @@ func ToGetUserPresenter(user *entities.User) *getUserPresenter {
 	}
 }
 
-var _, _, _, _ presenters.Presenter = &getUserPresenter{},
+var _, _, _, _ interfaces.Presenter = &getUserPresenter{},
 	&createUserPresenter{},
 	&updateUserPresenter{},
 	&deleteUserPresenter{}
