@@ -28,7 +28,7 @@ func (uc *UserController) GetUser(ctx *gin.Context) {
 	userId, ok := ctx.Get("id")
 
 	if !ok {
-		uc.SendErrorJson(ctx, 400, &presenters.ErrorsPresenter{Errors: []string{"Parameters are not found."}})
+		uc.SendErrorJson(ctx, 400, []string{"Parameters are not found."})
 		return
 	}
 
@@ -37,7 +37,7 @@ func (uc *UserController) GetUser(ctx *gin.Context) {
 	user, err := uc.userInteractor.GetUser(gui)
 
 	if err != nil {
-		uc.SendErrorJson(ctx, 400, &presenters.ErrorsPresenter{Errors: []string{err.Error()}})
+		uc.SendErrorJson(ctx, 400, []string{err.Error()})
 		return
 	}
 
