@@ -23,7 +23,7 @@ func NewUser(userId ids.UserId, userName values.UserName, userGenderType values.
 	}
 }
 
-// Id idを返却します．
+// Id IDを返却します．
 func (u *User) Id() ids.UserId {
 	return u.id
 }
