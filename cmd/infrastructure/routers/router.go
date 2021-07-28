@@ -5,7 +5,6 @@ import (
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure/middlewares/converters"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure/middlewares/handlers"
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure/routers/user"
 )
 
 type Router struct {
@@ -28,7 +27,7 @@ func (r *Router) Run() error {
 		converters.ConvertId(),
 	)
 
-	user.UserRouter(r.router, r.db)
+	UserRouter(r.router, r.db)
 
 	return r.router.Run()
 }
