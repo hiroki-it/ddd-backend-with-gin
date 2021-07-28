@@ -1,4 +1,4 @@
-package presenters
+package interfaces
 
 // errorsPresenter 異常系レスポンスを定義します．
 type errorsPresenter struct {
