@@ -12,6 +12,8 @@ type User struct {
 	genderType values.UserGenderType
 }
 
+type Users []*User
+
 var _ domain.Entity = &User{}
 
 // NewUser コンストラクタ
