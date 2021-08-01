@@ -16,7 +16,7 @@ services:
     image: ddd-api-with-go-gin:latest
     hostname: api
     ports:
-      - "8080:8080"
+      - "18080:18080"
     networks:
       - default
     tty: true
@@ -39,7 +39,7 @@ services:
     image: mysql:5.7
     hostname: db
     ports:
-      - "3308:3306"
+      - "3306:3306"
     networks:
       - default
     volumes:
