@@ -7,9 +7,9 @@ import (
 )
 
 type User struct {
-	id         ids.UserId
-	name       values.UserName
-	genderType values.UserGenderType
+	userId         ids.UserId
+	userName       *values.UserName
+	userGenderType values.UserGenderType
 }
 
 type Users []*User
@@ -17,30 +17,30 @@ type Users []*User
 var _ domain.Entity = &User{}
 
 // NewUser コンストラクタ
-func NewUser(userId ids.UserId, userName values.UserName, userGenderType values.UserGenderType) *User {
+func NewUser(userId ids.UserId, userName *values.UserName, userGenderType values.UserGenderType) *User {
 	return &User{
-		id:         userId,
-		name:       userName,
-		genderType: userGenderType,
+		userId:         userId,
+		userName:       userName,
+		userGenderType: userGenderType,
 	}
 }
 
 // Id IDを返却します．
 func (u *User) Id() ids.UserId {
-	return u.id
+	return u.userId
 }
 
 // Name 名前を返却します．
-func (u *User) Name() values.UserName {
-	return u.name
+func (u *User) Name() *values.UserName {
+	return u.userName
 }
 
 // GenderType 性別を返却します．
 func (u *User) GenderType() values.UserGenderType {
-	return u.genderType
+	return u.userGenderType
 }
 
 // Equal 等価性を検証します．
 func (u *User) Equal(target domain.Entity) bool {
-	return u.id == target.(*User).Id()
+	return u.userId == target.(*User).Id()
 }
