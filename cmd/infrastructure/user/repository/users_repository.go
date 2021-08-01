@@ -23,9 +23,9 @@ func NewUserRepository(db *infrastructure.DB) repositories.UserRepository {
 
 // FindById IDを元にユーザを返却します．
 func (ur *UserRepository) FindById(id ids.UserId) (*entities.User, error) {
-	userDTO := &dto.UserDTO{}
+	userDTO := dto.UserDTO{}
 
-	err := ur.db.Find(userDTO, id.ToPrimitive())
+	err := ur.db.Find(&userDTO, id.ToPrimitive())
 
 	if err != nil {
 		return nil, err
@@ -37,9 +37,9 @@ func (ur *UserRepository) FindById(id ids.UserId) (*entities.User, error) {
 
 // FindAll 全てのユーザを返却します．
 func (ur *UserRepository) FindAll() (entities.Users, error) {
-	usersDTO := &dto.UsersDTO{}
+	usersDTO := dto.UsersDTO{}
 
-	err := ur.db.FindAll(usersDTO)
+	err := ur.db.FindAll(&usersDTO)
 
 	if err != nil {
 		return nil, err
@@ -53,7 +53,7 @@ func (ur *UserRepository) FindAll() (entities.Users, error) {
 func (ur *UserRepository) Update() (*entities.User, error) {
 	userDTO := &dto.UserDTO{}
 
-	err := ur.db.Updates(userDTO)
+	err := ur.db.Updates(&userDTO)
 
 	if err != nil {
 		return nil, err
