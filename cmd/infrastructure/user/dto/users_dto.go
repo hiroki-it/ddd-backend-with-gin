@@ -4,6 +4,7 @@ import (
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/entities"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/ids"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/values"
+	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure"
 )
 
 type UserDTO struct {
@@ -13,6 +14,8 @@ type UserDTO struct {
 }
 
 type UsersDTO []*UserDTO
+
+var _ infrastructure.DTO = &UserDTO{}
 
 // ToUser UserDTOをUserに変換します．
 func (ud UserDTO) ToUser() *entities.User {
