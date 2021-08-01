@@ -63,26 +63,26 @@ func (d *DB) Close() error {
 }
 
 // Create 集約を作成します．
-func (d *DB) Create(data map[string]interface{}) *gorm.DB {
-	return d.conn.Create(data)
+func (d *DB) Create(DTO DTO) error {
+	return d.conn.Create(DTO).Error
 }
 
 // Find 集約を一つ取得します．
-func (d *DB) Find(DTO DTO, id int) *gorm.DB {
-	return d.conn.First(DTO, id)
+func (d *DB) Find(DTO DTO, id int) error {
+	return d.conn.First(DTO, id).Error
 }
 
 // FindAll 集約を全て取得します．
-func (d *DB) FindAll(DTO DTO) *gorm.DB {
-	return d.conn.First(DTO)
+func (d *DB) FindAll(DTO DTO) error {
+	return d.conn.First(DTO).Error
 }
 
 // Updates 集約の複数値を更新します．
-func (d *DB) Updates(DTO DTO) *gorm.DB {
-	return d.conn.Select("*").Updates(DTO)
+func (d *DB) Updates(DTO DTO) error {
+	return d.conn.Select("*").Updates(DTO).Error
 }
 
 // Delete 集約を削除します．
-func (d *DB) Delete(id int) *gorm.DB {
-	return d.conn.Delete(id)
+func (d *DB) Delete(id int) error {
+	return d.conn.Delete(id).Error
 }
