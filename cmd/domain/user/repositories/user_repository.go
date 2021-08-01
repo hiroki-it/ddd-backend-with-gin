@@ -6,7 +6,7 @@ import (
 )
 
 type UserRepository interface {
-	FindById(id ids.UserId) (*entities.User, error)
+	FindById(ids.UserId) (*entities.User, error)
 	FindAll() (entities.Users, error)
 	Update() (*entities.User, error)
 }
