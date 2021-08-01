@@ -36,8 +36,8 @@ func (u *User) Name() values.UserName {
 }
 
 // GenderType 性別を返却します．
-func (u *User) GenderType() string {
-	return u.genderType.String()
+func (u *User) GenderType() values.UserGenderType {
+	return u.genderType
 }
 
 // Equal 等価性を検証します．
