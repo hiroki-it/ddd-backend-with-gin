@@ -25,7 +25,7 @@ func NewUserRepository(db *infrastructure.DB) repositories.UserRepository {
 func (ur *UserRepository) FindById(id ids.UserId) (*entities.User, error) {
 	userDTO := &dto.UserDTO{}
 
-	err := ur.db.Conn().First(userDTO, id.ToPrimitive()).Error
+	err := ur.db.Find(userDTO, id.ToPrimitive()).Error
 
 	if err != nil {
 		return nil, err
