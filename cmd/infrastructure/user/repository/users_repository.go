@@ -70,3 +70,19 @@ func (ur *UserRepository) Update(user *entities.User) (*entities.User, error) {
 	// DTOをユーザエンティティに変換します．
 	return userDTO.ToUser(), nil
 }
+
+// Delete ユーザを削除します．
+func (ur *UserRepository) Delete(id ids.UserId) error {
+	// ユーザエンティティをDTOに変換します．
+	userDTO := dto.UserDTO{
+		UserId: id.ToPrimitive(),
+	}
+
+	err := ur.db.Delete(&userDTO)
+
+	if err != nil {
+		return err
+	}
+
+	return nil
+}
