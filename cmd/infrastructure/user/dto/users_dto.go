@@ -25,9 +25,9 @@ var _ infrastructure.DTO = &UserDTO{}
 func (ud UserDTO) ToUser() *entities.User {
 
 	user := entities.NewUser(
-		ud.Id,
-		ud.Name,
-		ud.GenderType,
+		ids.UserId(ud.UserId),
+		values.NewUserName(ud.UserLastName, ud.UserFirstName, ud.UserLastKanaName, ud.UserFirstKanaName),
+		values.UserGenderType(ud.UserGenderType),
 	)
 
 	return user
