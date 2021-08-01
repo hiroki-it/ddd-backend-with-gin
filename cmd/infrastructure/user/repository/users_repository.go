@@ -25,7 +25,7 @@ func NewUserRepository(db *infrastructure.DB) repositories.UserRepository {
 func (ur *UserRepository) FindById(id ids.UserId) (*entities.User, error) {
 	userDTO := &dto.UserDTO{}
 
-	err := ur.db.Find(userDTO, id.ToPrimitive()).Error
+	err := ur.db.Find(userDTO, id.ToPrimitive())
 
 	if err != nil {
 		return nil, err
@@ -38,7 +38,7 @@ func (ur *UserRepository) FindById(id ids.UserId) (*entities.User, error) {
 func (ur *UserRepository) FindAll() (entities.Users, error) {
 	usersDTO := &dto.UsersDTO{}
 
-	err := ur.db.FindAll(usersDTO).Error
+	err := ur.db.FindAll(usersDTO)
 
 	if err != nil {
 		return nil, err
