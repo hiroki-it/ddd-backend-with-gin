@@ -72,9 +72,14 @@ func (d *DB) Create(data map[string]interface{}) *gorm.DB {
 	return d.conn.Create(data)
 }
 
-// Find 集約を取得します．
-func (d *DB) Find(id int) *gorm.DB {
-	return d.conn.Find(id)
+// Find 集約を一つ取得します．
+func (d *DB) Find(DTO gorm.Model, id int) *gorm.DB {
+	return d.conn.First(DTO, id)
+}
+
+// FindAll 集約を全て取得します．
+func (d *DB) FindAll(DTO gorm.Model) *gorm.DB {
+	return d.conn.First(DTO)
 }
 
 // Updates 集約を更新します．
