@@ -3,21 +3,21 @@ package values
 import "github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain"
 
 type UserName struct {
-	firstName     string
 	lastName      string
-	firstKanaName string
+	firstName     string
 	lastKanaName  string
+	firstKanaName string
 }
 
 var _ domain.Value = &UserName{}
 
 // NewUserName コンストラクタ
-func NewUserName(firstName string, lastName string, firstKanaName string, lastKanaName string) *UserName {
+func NewUserName(lastName string, firstName string, lastKanaName string, firstKanaName string) *UserName {
 	return &UserName{
-		firstName:     firstName,
 		lastName:      lastName,
-		firstKanaName: firstKanaName,
+		firstName:     firstName,
 		lastKanaName:  lastKanaName,
+		firstKanaName: firstKanaName,
 	}
 }
 
