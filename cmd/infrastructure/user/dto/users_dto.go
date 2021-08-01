@@ -9,9 +9,12 @@ import (
 
 // UserDTO NOTE: 利便性のため，DTOはパブリックフィールドとします．
 type UserDTO struct {
-	Id         ids.UserId `gorm:"primaryKey"`
-	Name       values.UserName
-	GenderType values.UserGenderType
+	UserId            int `gorm:"primaryKey"`
+	UserLastName      string
+	UserFirstName     string
+	UserLastKanaName  string
+	UserFirstKanaName string
+	UserGenderType    int
 }
 
 type UsersDTO []*UserDTO
