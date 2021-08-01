@@ -38,7 +38,7 @@ func (ur *UserRepository) FindById(id ids.UserId) (*entities.User, error) {
 func (ur *UserRepository) FindAll() (entities.Users, error) {
 	usersDTO := &dto.UsersDTO{}
 
-	err := ur.db.Conn().First(usersDTO).Error
+	err := ur.db.FindAll(usersDTO).Error
 
 	if err != nil {
 		return nil, err
