@@ -30,9 +30,9 @@ func (u *User) Id() ids.UserId {
 	return u.id
 }
 
-// FullName 氏名を返却します．
-func (u *User) FullName() string {
-	return u.name.FullName()
+// Name 名前を返却します．
+func (u *User) Name() values.UserName {
+	return u.name
 }
 
 // GenderType 性別を返却します．
