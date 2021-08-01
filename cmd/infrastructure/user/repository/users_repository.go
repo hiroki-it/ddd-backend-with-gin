@@ -50,8 +50,16 @@ func (ur *UserRepository) FindAll() (entities.Users, error) {
 }
 
 // Update ユーザを更新します．
-func (ur *UserRepository) Update() (*entities.User, error) {
-	userDTO := &dto.UserDTO{}
+func (ur *UserRepository) Update(user *entities.User) (*entities.User, error) {
+	// ユーザエンティティをDTOに変換します．
+	userDTO := dto.UserDTO{
+		UserId:            user.Id().ToPrimitive(),
+		UserLastName:      user.Name().LastName(),
+		UserFirstName:     user.Name().FirstName(),
+		UserLastKanaName:  user.Name().LastKanaName(),
+		UserFirstKanaName: user.Name().FirstKanaName(),
+		UserGenderType:    user.GenderType().ToPrimitive(),
+	}
 
 	err := ur.db.Updates(&userDTO)
 

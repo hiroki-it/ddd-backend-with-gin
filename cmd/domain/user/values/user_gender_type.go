@@ -18,3 +18,8 @@ func (ugt UserGenderType) String() string {
 		return "未回答"
 	}
 }
+
+// ToPrimitive ユーザ性別タイプをプリミティブ型に変換します．
+func (ugt UserGenderType) ToPrimitive() int {
+	return int(ugt)
+}

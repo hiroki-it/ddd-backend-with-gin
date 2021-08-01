@@ -36,6 +36,26 @@ func (un *UserName) Equal(target domain.Value) bool {
 	return false
 }
 
+// LastName 苗字を返却します．
+func (un *UserName) LastName() string {
+	return un.lastName
+}
+
+// FirstName 名前を返却します．
+func (un *UserName) FirstName() string {
+	return un.firstName
+}
+
+// LastKanaName 苗字カナを返却します．
+func (un *UserName) LastKanaName() string {
+	return un.lastKanaName
+}
+
+// FirstKanaName 名前カナを返却します．
+func (un *UserName) FirstKanaName() string {
+	return un.firstKanaName
+}
+
 // FullName フルネームを返却します．
 func (un *UserName) FullName() string {
 	return un.firstName + un.lastName
