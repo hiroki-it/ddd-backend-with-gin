@@ -66,3 +66,23 @@ func (d *DB) Close() error {
 func (d *DB) Conn() *gorm.DB {
 	return d.conn
 }
+
+// Create 集約を作成します．
+func (d *DB) Create(data map[string]interface{}) *gorm.DB {
+	return d.conn.Create(data)
+}
+
+// Find 集約を取得します．
+func (d *DB) Find(id int) *gorm.DB {
+	return d.conn.Find(id)
+}
+
+// Updates 集約を更新します．
+func (d *DB) Updates(data map[string]interface{}) *gorm.DB {
+	return d.conn.Updates(data)
+}
+
+// Delete 集約を削除します．
+func (d *DB) Delete(id int) *gorm.DB {
+	return d.conn.Delete(id)
+}
