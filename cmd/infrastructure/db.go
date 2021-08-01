@@ -84,6 +84,6 @@ func (d *DB) Updates(DTO DTO) error {
 }
 
 // Delete 集約を削除します．
-func (d *DB) Delete(id int) error {
-	return d.conn.Delete(id).Error
+func (d *DB) Delete(DTO DTO) error {
+	return d.conn.Delete(DTO).Error
 }
