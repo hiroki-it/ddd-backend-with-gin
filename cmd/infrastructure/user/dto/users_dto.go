@@ -35,15 +35,10 @@ func (ud UserDTO) ToUser() *entities.User {
 
 // ToUsers UsersDTOをUsersに変換します．
 func (usd UsersDTO) ToUsers() entities.Users {
-
 	users := entities.Users{}
 
 	for i, ud := range usd {
-		users[i] = entities.NewUser(
-			ud.Id,
-			ud.Name,
-			ud.GenderType,
-		)
+		users[i] = ud.ToUser()
 	}
 
 	return users
