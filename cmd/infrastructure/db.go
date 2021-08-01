@@ -8,6 +8,7 @@ import (
 	"gorm.io/gorm"
 )
 
+// DB ORMのメソッドをラッピングしやすいように，ORMを構造体に保持するようにします．
 type DB struct {
 	conn *gorm.DB
 }
