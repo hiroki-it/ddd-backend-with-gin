@@ -31,6 +31,7 @@ func (ur *UserRepository) FindById(id ids.UserId) (*entities.User, error) {
 		return nil, err
 	}
 
+	// DTOをユーザエンティティに変換します．
 	return userDTO.ToUser(), nil
 }
 
@@ -44,6 +45,7 @@ func (ur *UserRepository) FindAll() (entities.Users, error) {
 		return nil, err
 	}
 
+	// DTO配列をユーザエンティティ配列に変換します．
 	return usersDTO.ToUsers(), nil
 }
 
@@ -57,5 +59,6 @@ func (ur *UserRepository) Update() (*entities.User, error) {
 		return nil, err
 	}
 
+	// DTOをユーザエンティティに変換します．
 	return userDTO.ToUser(), nil
 }
