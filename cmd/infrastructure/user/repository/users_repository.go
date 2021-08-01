@@ -46,3 +46,16 @@ func (ur *UserRepository) FindAll() (entities.Users, error) {
 
 	return usersDTO.ToUsers(), nil
 }
+
+// Update ユーザを更新します．
+func (ur *UserRepository) Update() (*entities.User, error) {
+	userDTO := &dto.UserDTO{}
+
+	err := ur.db.Updates(userDTO)
+
+	if err != nil {
+		return nil, err
+	}
+
+	return userDTO.ToUser(), nil
+}
