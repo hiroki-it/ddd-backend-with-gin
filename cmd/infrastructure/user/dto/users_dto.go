@@ -7,6 +7,7 @@ import (
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure"
 )
 
+// UserDTO NOTE: 利便性のため，DTOはパブリックフィールドとします．
 type UserDTO struct {
 	Id         ids.UserId `gorm:"primaryKey"`
 	Name       values.UserName
@@ -17,7 +18,7 @@ type UsersDTO []*UserDTO
 
 var _ infrastructure.DTO = &UserDTO{}
 
-// ToUser UserDTOをUserに変換します．
+// ToUser DTOをユーザエンティティに変換します．
 func (ud UserDTO) ToUser() *entities.User {
 
 	user := entities.NewUser(
