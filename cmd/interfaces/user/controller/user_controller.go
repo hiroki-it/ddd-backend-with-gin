@@ -24,14 +24,14 @@ func NewUserController(userInteractor *interactor.UserInteractor) *UserControlle
 
 // GetUser 単一のユーザを取得します．
 func (uc *UserController) GetUser(ctx *gin.Context) {
-	userId, ok := ctx.Get("id")
+	userId, err := strconv.Atoi(ctx.Param("id"))
 
-	if !ok {
+	if err != nil {
 		uc.SendErrorJson(ctx, 400, []string{"Parameters are not found."})
 		return
 	}
 
-	gui := &input.GetUserInput{UserId: userId.(int)}
+	gui := &input.GetUserInput{UserId: userId}
 
 	user, err := uc.userInteractor.GetUser(gui)
 
