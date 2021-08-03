@@ -1,11 +1,11 @@
-package repository
+package repositories
 
 import (
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/entities"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/ids"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/repositories"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure"
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure/user/dto"
+	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure/user/dtos"
 )
 
 type UserRepository struct {
@@ -23,7 +23,7 @@ func NewUserRepository(db *infrastructure.DB) repositories.UserRepository {
 
 // FindById IDを元にユーザを返却します．
 func (ur *UserRepository) FindById(id ids.UserId) (*entities.User, error) {
-	userDTO := dto.UserDTO{}
+	userDTO := dtos.UserDTO{}
 
 	err := ur.db.Find(&userDTO, id.ToPrimitive())
 
@@ -37,7 +37,7 @@ func (ur *UserRepository) FindById(id ids.UserId) (*entities.User, error) {
 
 // FindAll 全てのユーザを返却します．
 func (ur *UserRepository) FindAll() (entities.Users, error) {
-	usersDTO := dto.UsersDTO{}
+	usersDTO := dtos.UsersDTO{}
 
 	err := ur.db.FindAll(&usersDTO)
 
@@ -52,7 +52,7 @@ func (ur *UserRepository) FindAll() (entities.Users, error) {
 // Update ユーザを更新します．
 func (ur *UserRepository) Update(user *entities.User) (*entities.User, error) {
 	// ユーザエンティティをDTOに変換します．
-	userDTO := dto.UserDTO{
+	userDTO := dtos.UserDTO{
 		UserId:            user.Id().ToPrimitive(),
 		UserLastName:      user.Name().LastName(),
 		UserFirstName:     user.Name().FirstName(),
@@ -74,7 +74,7 @@ func (ur *UserRepository) Update(user *entities.User) (*entities.User, error) {
 // Delete ユーザを削除します．
 func (ur *UserRepository) Delete(id ids.UserId) error {
 	// ユーザエンティティをDTOに変換します．
-	userDTO := dto.UserDTO{
+	userDTO := dtos.UserDTO{
 		UserId: id.ToPrimitive(),
 	}
 
