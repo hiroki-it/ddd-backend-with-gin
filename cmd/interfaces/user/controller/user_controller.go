@@ -6,6 +6,7 @@ import (
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/interfaces/user/presenter"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/user/input"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/user/interactor"
+	"strconv"
 )
 
 type UserController struct {
