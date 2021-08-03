@@ -25,7 +25,7 @@ type deleteUserPresenter struct {
 	UserId int `json:"id"`
 }
 
-// ToGetUserPresenter 変換します．
+// ToGetUserPresenter 取得レスポンスデータを作成します．
 func ToGetUserPresenter(user *entities.User) *getUserPresenter {
 	return &getUserPresenter{
 		UserId: int(user.Id()),
