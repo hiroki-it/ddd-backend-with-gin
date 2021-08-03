@@ -2,6 +2,7 @@ package interactor
 
 import (
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/entities"
+	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/ids"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/repositories"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/user/input"
 )
@@ -19,5 +20,5 @@ func NewUserInteractor(userRepository repositories.UserRepository) *UserInteract
 
 // GetUser ユーザを取得します．
 func (ui *UserInteractor) GetUser(input *input.GetUserInput) (*entities.User, error) {
-	return nil, nil
+	return ui.userRepository.FindById(ids.UserId(input.UserId))
 }
