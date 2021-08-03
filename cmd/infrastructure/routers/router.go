@@ -23,7 +23,6 @@ func NewRouter(router *gin.Engine, db *infrastructure.DB) *Router {
 func (r *Router) Run() error {
 	r.router.Use(
 		middlewares.HandleError(),
-		middlewares.ConvertId(),
 	)
 
 	UserRouter(r.router, r.db)
