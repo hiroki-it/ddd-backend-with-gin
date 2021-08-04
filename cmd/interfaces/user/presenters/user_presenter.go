@@ -6,19 +6,21 @@ import (
 )
 
 type getUserPresenter struct {
-	UserId int `json:"id"`
+	UserId         int    `json:"id"`
+	UserName       string `json:"name"`
+	UserGenderType string `json:"gender_type"`
 }
 
 type createUserPresenter struct {
 	UserId         int    `json:"id"`
 	UserName       string `json:"name"`
-	UserGenderType int    `json:"gender_type"`
+	UserGenderType string `json:"gender_type"`
 }
 
 type updateUserPresenter struct {
 	UserId         int    `json:"id"`
 	UserName       string `json:"name"`
-	UserGenderType int    `json:"gender_type"`
+	UserGenderType string `json:"gender_type"`
 }
 
 type deleteUserPresenter struct {
