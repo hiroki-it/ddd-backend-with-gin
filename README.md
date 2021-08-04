@@ -1,5 +1,37 @@
 # ddd-api-with-go-gin
 
+## ディレクトリ構成
+
+```
+project
+├── build # ビルド処理
+└── cmd   # エントリポイントを含む処理，ユニットテスト
+    ├── domain               # ** ドメイン層 **
+    |   └── foo              # 任意のルートエンティティ
+    |       ├── entities     # エンティティ
+    |       ├── ids          # ID
+    |       ├── repositories # インターフェースリポジトリ
+    |       └── values       # 値オブジェクト
+    |
+    ├── infrastructure       # ** インターフェース層 **
+    |   ├── middlewares      # ミドルウェア
+    |   ├── routers          # ルータ
+    |   └── foo              # 任意のルートエンティティ
+    |       ├── dtos         # gormモデルからドメインモデルへの変換
+    |       ├── repositories # 実装リポジトリ
+    |       └── seeders      # DBテストデータ
+    |
+    ├── interfaces          # ** インターフェース層 **
+    |   └── foo             # 任意のルートエンティティ
+    |       ├── controllers # コントローラ
+    |       └── presenters  # プレゼンター（レスポンスデータの構築）
+    |     
+    └── usecase             # ** ユースケース **
+        └── foo             # 任意のルートエンティティ
+            ├── inputs      # インプット（インターラクターのパラメータの構築 & バリデーション）
+            └── interactors # インターラクター
+```
+
 ## 環境構築
 
 ### ビルドイメージ & コンテナ構築
