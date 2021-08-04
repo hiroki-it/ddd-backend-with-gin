@@ -32,6 +32,15 @@ func ToGetUserPresenter(user *entities.User) *getUserPresenter {
 	}
 }
 
+// ToCreateUserPresenter 作成レスポンスデータを作成します．
+func ToCreateUserPresenter(user *entities.User) *createUserPresenter {
+	return &createUserPresenter{
+		UserId:         int(user.Id()),
+		UserName:       user.Name().FullName(),
+		UserGenderType: user.GenderType().String(),
+	}
+}
+
 var _, _, _, _ interfaces.Presenter = &getUserPresenter{},
 	&createUserPresenter{},
 	&updateUserPresenter{},

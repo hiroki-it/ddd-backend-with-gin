@@ -8,6 +8,7 @@ import (
 type UserRepository interface {
 	FindById(ids.UserId) (*entities.User, error)
 	FindAll() (entities.Users, error)
+	Create(*entities.User) (*entities.User, error)
 	Update(*entities.User) (*entities.User, error)
 	Delete(ids.UserId) error
 }

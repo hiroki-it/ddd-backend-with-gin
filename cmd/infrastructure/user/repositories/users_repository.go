@@ -21,6 +21,27 @@ func NewUserRepository(db *infrastructure.DB) repositories.UserRepository {
 	}
 }
 
+// Create ユーザを作成します．
+func (ur *UserRepository) Create(user *entities.User) (*entities.User, error) {
+	userDTO := dtos.UserDTO{
+		UserId:            user.Id().ToPrimitive(),
+		UserLastName:      user.Name().LastName(),
+		UserFirstName:     user.Name().FirstName(),
+		UserLastKanaName:  user.Name().LastKanaName(),
+		UserFirstKanaName: user.Name().FirstKanaName(),
+		UserGenderType:    user.GenderType().ToPrimitive(),
+	}
+
+	err := ur.db.Create(&userDTO)
+
+	if err != nil {
+		return nil, err
+	}
+
+	// DTOをユーザエンティティに変換します．
+	return userDTO.ToUser(), nil
+}
+
 // FindById IDを元にユーザを返却します．
 func (ur *UserRepository) FindById(id ids.UserId) (*entities.User, error) {
 	userDTO := dtos.UserDTO{}

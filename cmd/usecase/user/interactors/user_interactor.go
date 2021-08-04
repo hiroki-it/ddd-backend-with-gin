@@ -22,3 +22,14 @@ func NewUserInteractor(userRepository repositories.UserRepository) *UserInteract
 func (ui *UserInteractor) GetUser(input *inputs.GetUserInput) (*entities.User, error) {
 	return ui.userRepository.FindById(ids.UserId(input.UserId))
 }
+
+// CreateUser ユーザを作成します．
+func (ui *UserInteractor) CreateUser(cui *inputs.CreateUserInput) (*entities.User, error) {
+	user := entities.NewUser(
+		ids.UserId(cui.UserId),
+		values.NewUserName(cui.UserLastName, cui.UserFirstName, cui.UserLastKanaName, cui.UserFirstKanaName),
+		values.UserGenderType(cui.UserGenderType),
+	)
+
+	return ui.userRepository.Create(user)
+}

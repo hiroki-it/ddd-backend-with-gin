@@ -49,8 +49,25 @@ func (uc *UserController) GetUser(ctx *gin.Context) {
 func (uc *UserController) GetUsers(ctx *gin.Context) {
 }
 
-// CreateUsers ユーザを作成します．
-func (uc *UserController) CreateUsers(ctx *gin.Context) {
+// CreateUser ユーザを作成します．
+func (uc *UserController) CreateUser(ctx *gin.Context) {
+	cui := &inputs.CreateUserInput{}
+	err := ctx.Bind(cui)
+
+	if err != nil {
+		uc.SendErrorJson(ctx, 400, []string{"Parameters are not found."})
+		return
+	}
+
+	user, err := uc.userInteractor.CreateUser(cui)
+
+	if err != nil {
+		uc.SendErrorJson(ctx, 400, []string{err.Error()})
+		return
+	}
+
+	uc.SendJson(ctx, 200, presenters.ToCreateUserPresenter(user))
+	return
 }
 
 // UpdateUser ユーザを更新します．
