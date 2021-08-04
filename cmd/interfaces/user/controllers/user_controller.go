@@ -3,7 +3,6 @@ package controllers
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/interfaces"
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/interfaces/user/presenters"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/user/inputs"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/user/interactors"
 	"strconv"
@@ -34,14 +33,14 @@ func (uc *UserController) GetUser(ctx *gin.Context) {
 
 	gui := &inputs.GetUserInput{UserId: userId}
 
-	user, err := uc.userInteractor.GetUser(gui)
+	presenter, err := uc.userInteractor.GetUser(gui)
 
 	if err != nil {
 		uc.SendErrorJson(ctx, 400, []string{err.Error()})
 		return
 	}
 
-	uc.SendJson(ctx, 200, presenters.ToGetUserPresenter(user))
+	uc.SendJson(ctx, 200, presenter)
 	return
 }
 
@@ -59,14 +58,14 @@ func (uc *UserController) CreateUser(ctx *gin.Context) {
 		return
 	}
 
-	user, err := uc.userInteractor.CreateUser(cui)
+	presenter, err := uc.userInteractor.CreateUser(cui)
 
 	if err != nil {
 		uc.SendErrorJson(ctx, 400, []string{err.Error()})
 		return
 	}
 
-	uc.SendJson(ctx, 200, presenters.ToCreateUserPresenter(user))
+	uc.SendJson(ctx, 200, presenter)
 	return
 }
 
