@@ -5,6 +5,9 @@ import (
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/user/outputs"
 )
 
+type UserPresenter struct {
+}
+
 type GetUserPresenter struct {
 	UserId         int    `json:"id"`
 	UserName       string `json:"name"`
@@ -30,7 +33,7 @@ type DeleteUserPresenter struct {
 }
 
 // ToGetUserPresenter 取得レスポンスデータを作成します．
-func ToGetUserPresenter(guo *outputs.GetUserOutput) *GetUserPresenter {
+func (up *UserPresenter) ToGetUserPresenter(guo *outputs.GetUserOutput) *GetUserPresenter {
 	return &GetUserPresenter{
 		UserId:         guo.UserId,
 		UserName:       guo.UserName,
@@ -40,7 +43,7 @@ func ToGetUserPresenter(guo *outputs.GetUserOutput) *GetUserPresenter {
 }
 
 // ToCreateUserPresenter 作成レスポンスデータを作成します．
-func ToCreateUserPresenter(cuo *outputs.CreateUserOutput) *CreateUserPresenter {
+func (up *UserPresenter) ToCreateUserPresenter(cuo *outputs.CreateUserOutput) *CreateUserPresenter {
 	return &CreateUserPresenter{
 		UserId:         cuo.UserId,
 		UserName:       cuo.UserName,
@@ -49,7 +52,8 @@ func ToCreateUserPresenter(cuo *outputs.CreateUserOutput) *CreateUserPresenter {
 	}
 }
 
-var _, _, _, _ interfaces.Presenter = &GetUserPresenter{},
+var _, _, _, _, _ interfaces.Presenter = &UserPresenter{},
+	&GetUserPresenter{},
 	&CreateUserPresenter{},
 	&UpdateUserPresenter{},
 	&DeleteUserPresenter{}
