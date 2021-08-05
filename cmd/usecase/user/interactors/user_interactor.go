@@ -12,12 +12,14 @@ import (
 
 type UserInteractor struct {
 	userRepository repositories.UserRepository
+	userPresenter  *presenters.UserPresenter
 }
 
 // NewUserInteractor コンストラクタ
-func NewUserInteractor(userRepository repositories.UserRepository) *UserInteractor {
+func NewUserInteractor(userRepository repositories.UserRepository, userPresenter *presenters.UserPresenter) *UserInteractor {
 	return &UserInteractor{
 		userRepository: userRepository,
+		userPresenter:  userPresenter,
 	}
 }
 
@@ -36,7 +38,7 @@ func (ui *UserInteractor) GetUser(input *inputs.GetUserInput) (*presenters.GetUs
 		UserGenderType: user.GenderType().String(),
 	}
 
-	return presenters.ToGetUserPresenter(guo), nil
+	return ui.userPresenter.ToGetUserPresenter(guo), nil
 }
 
 // CreateUser ユーザを作成します．
@@ -60,5 +62,5 @@ func (ui *UserInteractor) CreateUser(cui *inputs.CreateUserInput) (*presenters.C
 		UserGenderType: user.GenderType().String(),
 	}
 
-	return presenters.ToCreateUserPresenter(cuo), nil
+	return ui.userPresenter.ToCreateUserPresenter(cuo), nil
 }
