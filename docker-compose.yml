@@ -2,19 +2,19 @@ version: "3.7"
 
 services:
 
-  # API
-  api:
+  # appコンテナ
+  app:
     build:
       context: .
-      dockerfile: build/api/Dockerfile
-    container_name: ddd-api-with-go-gin-api
+      dockerfile: build/app/Dockerfile
+    container_name: ddd-api-with-go-gin-app
     depends_on:
       - db
     env_file:
       - .env
       - .env.docker
     image: ddd-api-with-go-gin:latest
-    hostname: api
+    hostname: app
     ports:
       - "18080:18080"
     networks:
