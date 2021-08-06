@@ -16,7 +16,7 @@ services:
     image: ddd-api-with-go-gin-app:latest
     hostname: app
     ports:
-      - "18080:8080"
+      - "18080:18080"
     networks:
       - default
     tty: true
