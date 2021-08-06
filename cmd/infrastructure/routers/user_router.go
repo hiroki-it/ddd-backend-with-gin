@@ -15,5 +15,6 @@ func UserRouter(router *gin.Engine, db *infrastructure.DB) {
 	{
 		c := controllers.NewUserController(interactors.NewUserInteractor(repositories.NewUserRepository(db), &presenters.UserPresenter{}))
 		userRouter.GET("/users/:id", c.GetUser)
+		userRouter.POST("/users", c.CreateUser)
 	}
 }
