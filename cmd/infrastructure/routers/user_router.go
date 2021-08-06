@@ -14,7 +14,7 @@ func UserRouter(router *gin.Engine, db *infrastructure.DB) {
 	userRouter := router.Group("/users")
 	{
 		c := controllers.NewUserController(interactors.NewUserInteractor(repositories.NewUserRepository(db), &presenters.UserPresenter{}))
-		userRouter.GET("/users/:id", c.GetUser)
-		userRouter.POST("/users", c.CreateUser)
+		userRouter.GET("/:id", c.GetUser)
+		userRouter.POST("/", c.CreateUser)
 	}
 }
