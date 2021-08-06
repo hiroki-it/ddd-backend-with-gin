@@ -23,7 +23,7 @@ services:
     volumes:
       - .:/go/src
 
-  # データベース
+  # dbコンテナ
   db:
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
     container_name: ddd-api-with-go-gin-db
