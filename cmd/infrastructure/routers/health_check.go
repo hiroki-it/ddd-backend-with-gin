@@ -7,6 +7,7 @@ import (
 // HealthCheckRouter ルーティングを実行します．
 func HealthCheckRouter(router *gin.Engine) {
 	router.GET("/healthcheck", func(ctx *gin.Context) {
-		ctx.Status(200)
+		ctx.JSON(200, gin.H{"message": "ok"})
+		return
 	})
 }
