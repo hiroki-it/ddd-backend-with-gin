@@ -13,10 +13,11 @@ services:
     env_file:
       - .env
       - .env.docker
+    expose:
+      # nginxから転送されたリクエストを受信
+      - "8080"
     image: ddd-api-with-go-gin-app:latest
     hostname: app
-    ports:
-      - "18080:18080"
     networks:
       - default
     tty: true
