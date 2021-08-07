@@ -23,6 +23,22 @@ services:
     volumes:
       - .:/go/src
 
+  # webコンテナ
+  web:
+    build:
+      context: .
+      dockerfile: build/web/Dockerfile
+      target: develop
+    container_name: ddd-api-with-go-gin-web
+    depends_on:
+      - app
+    image: ddd-api-with-go-gin-web:latest
+    hostname: web
+    ports:
+      - "8001:80"
+    networks:
+      - default
+
   # dbコンテナ
   db:
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
