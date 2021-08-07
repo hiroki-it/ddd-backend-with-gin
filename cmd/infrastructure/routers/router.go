@@ -25,6 +25,8 @@ func (r *Router) Run() error {
 		middlewares.HandleError(),
 	)
 
+	HealthCheckRouter(r.router)
+
 	UserRouter(r.router, r.db)
 
 	return r.router.Run()
