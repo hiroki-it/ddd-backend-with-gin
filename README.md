@@ -13,7 +13,7 @@ project
     |       ├── repositories # インターフェースリポジトリ
     |       └── values       # 値オブジェクト
     |
-    ├── infrastructure       # ** インターフェース層 **
+    ├── infrastructure       # ** インフラストラクチャ層 **
     |   ├── middlewares      # ミドルウェア
     |   ├── routers          # ルータ
     |   └── foo              # 任意のルートエンティティ
@@ -29,7 +29,8 @@ project
     └── usecase             # ** ユースケース **
         └── foo             # 任意のルートエンティティ
             ├── inputs      # インプット（インターラクターのパラメータの構築 & バリデーション）
-            └── interactors # インターラクター
+            ├── interactors # インターラクタ 
+            └── outputs     # アウトプット
 ```
 
 ## 環境構築
