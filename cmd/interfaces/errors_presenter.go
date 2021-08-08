@@ -5,8 +5,8 @@ type errorsPresenter struct {
 	Errors []string `json:"errors"`
 }
 
-// ToErrorsPresenter 変換します．
-func ToErrorsPresenter(errors []string) *errorsPresenter {
+// ErrorsPresenter 変換します．
+func ErrorsPresenter(errors []string) *errorsPresenter {
 	return &errorsPresenter{
 		Errors: errors,
 	}
