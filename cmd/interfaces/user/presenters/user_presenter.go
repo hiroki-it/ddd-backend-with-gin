@@ -32,8 +32,8 @@ type DeleteUserPresenter struct {
 	UserId int `json:"id"`
 }
 
-// ToGetUserPresenter 取得レスポンスデータを作成します．
-func (up *UserPresenter) ToGetUserPresenter(guo *outputs.GetUserOutput) *GetUserPresenter {
+// GetUserPresenter 取得レスポンスデータを作成します．
+func (up *UserPresenter) GetUserPresenter(guo *outputs.GetUserOutput) *GetUserPresenter {
 	return &GetUserPresenter{
 		UserId:         guo.UserId,
 		UserName:       guo.UserName,
@@ -42,8 +42,8 @@ func (up *UserPresenter) ToGetUserPresenter(guo *outputs.GetUserOutput) *GetUser
 	}
 }
 
-// ToCreateUserPresenter 作成レスポンスデータを作成します．
-func (up *UserPresenter) ToCreateUserPresenter(cuo *outputs.CreateUserOutput) *CreateUserPresenter {
+// CreateUserPresenter 作成レスポンスデータを作成します．
+func (up *UserPresenter) CreateUserPresenter(cuo *outputs.CreateUserOutput) *CreateUserPresenter {
 	return &CreateUserPresenter{
 		UserId:         cuo.UserId,
 		UserName:       cuo.UserName,

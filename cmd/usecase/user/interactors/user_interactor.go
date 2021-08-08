@@ -38,7 +38,7 @@ func (ui *UserInteractor) GetUser(input *inputs.GetUserInput) (*presenters.GetUs
 		UserGenderType: user.GenderType().String(),
 	}
 
-	return ui.userPresenter.ToGetUserPresenter(guo), nil
+	return ui.userPresenter.GetUserPresenter(guo), nil
 }
 
 // CreateUser ユーザを作成します．
@@ -62,5 +62,5 @@ func (ui *UserInteractor) CreateUser(cui *inputs.CreateUserInput) (*presenters.C
 		UserGenderType: user.GenderType().String(),
 	}
 
-	return ui.userPresenter.ToCreateUserPresenter(cuo), nil
+	return ui.userPresenter.CreateUserPresenter(cuo), nil
 }
