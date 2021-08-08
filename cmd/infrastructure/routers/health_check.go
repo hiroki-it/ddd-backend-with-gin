@@ -8,6 +8,7 @@ import (
 func HealthCheckRouter(router *gin.Engine) {
 	router.GET("/healthcheck", func(ctx *gin.Context) {
 		ctx.JSON(200, gin.H{"message": "ok"})
-		return
 	})
+
+	return
 }
