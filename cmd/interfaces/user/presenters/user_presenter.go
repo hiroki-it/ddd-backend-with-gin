@@ -32,6 +32,12 @@ type DeleteUserPresenter struct {
 	UserId int `json:"id"`
 }
 
+var _, _, _, _, _ interfaces.Presenter = &UserPresenter{},
+	&GetUserPresenter{},
+	&CreateUserPresenter{},
+	&UpdateUserPresenter{},
+	&DeleteUserPresenter{}
+
 // GetUserPresenter 取得レスポンスデータを作成します．
 func (up *UserPresenter) GetUserPresenter(guo *outputs.GetUserOutput) *GetUserPresenter {
 	return &GetUserPresenter{
@@ -51,9 +57,3 @@ func (up *UserPresenter) CreateUserPresenter(cuo *outputs.CreateUserOutput) *Cre
 		UserGenderType: cuo.UserGenderType,
 	}
 }
-
-var _, _, _, _, _ interfaces.Presenter = &UserPresenter{},
-	&GetUserPresenter{},
-	&CreateUserPresenter{},
-	&UpdateUserPresenter{},
-	&DeleteUserPresenter{}
