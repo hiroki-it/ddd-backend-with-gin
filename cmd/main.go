@@ -3,6 +3,7 @@ package main
 import (
 	"github.com/gin-gonic/gin"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure"
+	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure/logger"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure/routers"
 )
 
@@ -15,7 +16,7 @@ func main() {
 		panic(err)
 	}
 
-	logger, err := infrastructure.NewLogger()
+	logger, err := logger.NewLogger()
 
 	if err != nil {
 		panic(err)
