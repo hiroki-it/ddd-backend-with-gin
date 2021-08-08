@@ -1,11 +1,12 @@
 package controllers
 
 import (
+	"strconv"
+
 	"github.com/gin-gonic/gin"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/interfaces"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/user/inputs"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/user/interactors"
-	"strconv"
 )
 
 type UserController struct {
