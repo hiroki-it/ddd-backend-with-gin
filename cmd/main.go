@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure"
+	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure/db"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure/logger"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure/routers"
 )
@@ -10,38 +10,38 @@ import (
 func main() {
 
 	// データベースに接続します．
-	db, err := infrastructure.NewDB()
+	DB, err := db.NewDB()
 
 	if err != nil {
 		panic(err)
 	}
 
-	logger, err := logger.NewLogger()
+	log, err := logger.NewLogger()
 
 	if err != nil {
 		panic(err)
 	}
 
 	// 最後にデータベースとの接続を切断します．
-	defer func(db *infrastructure.DB) {
-		err := db.Close()
+	defer func(DB *db.DB) {
+		err := DB.Close()
 		if err != nil {
-			logger.Log().Error(err.Error())
+			log.Log().Error(err.Error())
 		}
-	}(db)
+	}(DB)
 
-	err = db.AutoMigrate()
+	err = DB.AutoMigrate()
 
 	if err != nil {
-		logger.Log().Fatal(err.Error())
+		log.Log().Fatal(err.Error())
 	}
 
 	// コントローラにルーティングします．
-	router := routers.NewRouter(gin.Default(), db)
+	router := routers.NewRouter(gin.Default(), DB)
 
 	err = router.Run()
 
 	if err != nil {
-		logger.Log().Error(err.Error())
+		log.Log().Error(err.Error())
 	}
 }
