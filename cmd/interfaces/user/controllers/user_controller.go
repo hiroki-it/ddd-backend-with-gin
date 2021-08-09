@@ -5,21 +5,21 @@ import (
 
 	"github.com/gin-gonic/gin"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/interfaces"
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/user/inputs"
+	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/user/ports"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/user/requests"
 )
 
 type UserController struct {
 	*interfaces.Controller
-	userInput inputs.UserInput
+	userInputPort ports.UserInputPort
 }
 
 // NewUserController コンストラクタ
-func NewUserController(userInput inputs.UserInput) *UserController {
+func NewUserController(userInputPort ports.UserInputPort) *UserController {
 
 	return &UserController{
-		Controller: &interfaces.Controller{},
-		userInput:  userInput,
+		Controller:    &interfaces.Controller{},
+		userInputPort: userInputPort,
 	}
 }
 
@@ -34,7 +34,7 @@ func (uc *UserController) GetUser(context *gin.Context) {
 
 	guRequest := &requests.GetUserRequest{UserId: userId}
 
-	guResponse, err := uc.userInput.GetUser(guRequest)
+	guResponse, err := uc.userInputPort.GetUser(guRequest)
 
 	if err != nil {
 		uc.ErrorJSON(context, 400, []string{err.Error()})
@@ -60,7 +60,7 @@ func (uc *UserController) CreateUser(context *gin.Context) {
 		return
 	}
 
-	cuResponse, err := uc.userInput.CreateUser(cuRequest)
+	cuResponse, err := uc.userInputPort.CreateUser(cuRequest)
 
 	if err != nil {
 		uc.ErrorJSON(context, 400, []string{err.Error()})
