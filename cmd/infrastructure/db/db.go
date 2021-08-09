@@ -1,11 +1,14 @@
-package infrastructure
+package db
 
 import (
 	"fmt"
 	"os"
 
+	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
+
+	user "github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure/user/dtos"
 )
 
 // DB ORMのメソッドをラッピングしやすいように，ORMを構造体に保持するようにします．
@@ -37,7 +40,7 @@ func NewDB() (*DB, error) {
 
 // AutoMigrate マイグレーションを実行します．
 func (d *DB) AutoMigrate() error {
-	err := d.conn.AutoMigrate()
+	err := d.conn.AutoMigrate(&user.UserDTO{})
 
 	if err != nil {
 		return err
@@ -64,26 +67,26 @@ func (d *DB) Close() error {
 }
 
 // Create 集約を作成します．
-func (d *DB) Create(DTO DTO) error {
+func (d *DB) Create(DTO infrastructure.DTO) error {
 	return d.conn.Create(DTO).Error
 }
 
 // Find 集約を一つ取得します．
-func (d *DB) Find(DTO DTO, id int) error {
+func (d *DB) Find(DTO infrastructure.DTO, id int) error {
 	return d.conn.First(DTO, id).Error
 }
 
 // FindAll 集約を全て取得します．
-func (d *DB) FindAll(DTO DTO) error {
+func (d *DB) FindAll(DTO infrastructure.DTO) error {
 	return d.conn.First(DTO).Error
 }
 
 // Updates 集約の複数値を更新します．
-func (d *DB) Updates(DTO DTO) error {
+func (d *DB) Updates(DTO infrastructure.DTO) error {
 	return d.conn.Select("*").Updates(DTO).Error
 }
 
 // Delete 集約を削除します．
-func (d *DB) Delete(DTO DTO) error {
+func (d *DB) Delete(DTO infrastructure.DTO) error {
 	return d.conn.Delete(DTO).Error
 }
