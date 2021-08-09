@@ -2,7 +2,7 @@ package main
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure/db"
+	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure/database"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure/logger"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure/routers"
 )
@@ -10,7 +10,7 @@ import (
 func main() {
 
 	// データベースに接続します．
-	DB, err := db.NewDB()
+	db, err := database.NewDB()
 
 	if err != nil {
 		panic(err)
@@ -23,21 +23,21 @@ func main() {
 	}
 
 	// 最後にデータベースとの接続を切断します．
-	defer func(DB *db.DB) {
-		err := DB.Close()
+	defer func(db *database.DB) {
+		err := db.Close()
 		if err != nil {
 			log.Log().Error(err.Error())
 		}
-	}(DB)
+	}(db)
 
-	err = DB.AutoMigrate()
+	err = db.AutoMigrate()
 
 	if err != nil {
 		log.Log().Fatal(err.Error())
 	}
 
 	// コントローラにルーティングします．
-	router := routers.NewRouter(gin.Default(), DB)
+	router := routers.NewRouter(gin.Default(), db)
 
 	err = router.Run()
 

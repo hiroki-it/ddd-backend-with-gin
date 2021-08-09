@@ -2,17 +2,17 @@ package routers
 
 import (
 	"github.com/gin-gonic/gin"
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure/db"
+	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure/database"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure/middlewares"
 )
 
 type Router struct {
 	router *gin.Engine
-	db     *db.DB
+	db     *database.DB
 }
 
 // NewRouter コンストラクタ
-func NewRouter(router *gin.Engine, db *db.DB) *Router {
+func NewRouter(router *gin.Engine, db *database.DB) *Router {
 	return &Router{
 		router: router,
 		db:     db,

@@ -4,18 +4,18 @@ import (
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/entities"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/ids"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/repositories"
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure/db"
+	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure/database"
 	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure/user/dtos"
 )
 
 type UserRepository struct {
-	db *db.DB
+	db *database.DB
 }
 
 var _ repositories.UserRepository = &UserRepository{}
 
 // NewUserRepository コンストラクタ
-func NewUserRepository(db *db.DB) repositories.UserRepository {
+func NewUserRepository(db *database.DB) repositories.UserRepository {
 	return &UserRepository{
 		db: db,
 	}
