@@ -23,8 +23,7 @@ project
     |
     ├── interfaces          # ** インターフェース層 **
     |   └── foo             # 任意のルートエンティティ
-    |       ├── controllers # コントローラ
-    |       └── presenters  # プレゼンター（レスポンスデータの構築）
+    |       └── controllers # コントローラ
     |     
     └── usecase             # ** ユースケース層 **
         └── foo             # 任意のルートエンティティ
