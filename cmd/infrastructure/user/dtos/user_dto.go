@@ -21,6 +21,11 @@ type UsersDTO []*UserDTO
 
 var _ infrastructure.DTO = &UserDTO{}
 
+// TableName テーブル名を定義します．
+func (ud UserDTO) TableName() string {
+	return "users"
+}
+
 // ToUser DTOをユーザエンティティに変換します．
 func (ud UserDTO) ToUser() *entities.User {
 
