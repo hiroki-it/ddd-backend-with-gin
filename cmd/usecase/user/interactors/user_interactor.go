@@ -15,6 +15,8 @@ type UserInteractor struct {
 	userPresenter  *presenters.UserPresenter
 }
 
+var _ inputs.UserInput = &UserInteractor{}
+
 // NewUserInteractor コンストラクタ
 func NewUserInteractor(userRepository repositories.UserRepository, userPresenter *presenters.UserPresenter) *UserInteractor {
 	return &UserInteractor{
