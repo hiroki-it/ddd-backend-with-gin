@@ -43,7 +43,7 @@ project
     |     
     └── usecase             # ** ユースケース層 **
         └── foo             # 任意のルートエンティティ
-            ├── interactors # インターラクタ 
+            ├── interactors # インターラクター
             ├── boundaries  # インプットバウンダリ 
             ├── requests    # リクエストモデル
             └── responses   # レスポンスモデル
