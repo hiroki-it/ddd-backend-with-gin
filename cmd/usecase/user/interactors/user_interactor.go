@@ -47,7 +47,7 @@ func (ui *UserInteractor) CreateUser(cuRequest *requests.CreateUserRequest) (*re
 		values.UserGenderType(cuRequest.UserGenderType),
 	)
 
-	user, err := ui.userRepository.Create(user)
+	err := ui.userRepository.Create(user)
 
 	if err != nil {
 		return nil, err

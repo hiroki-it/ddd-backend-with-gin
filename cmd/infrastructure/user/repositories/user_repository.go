@@ -22,7 +22,7 @@ func NewUserRepository(db *database.DB) repositories.UserRepository {
 }
 
 // Create ユーザを作成します．
-func (ur *UserRepository) Create(user *entities.User) (*entities.User, error) {
+func (ur *UserRepository) Create(user *entities.User) error {
 	userDTO := dtos.UserDTO{
 		UserId:            user.Id().ToPrimitive(),
 		UserLastName:      user.Name().LastName(),
@@ -35,11 +35,11 @@ func (ur *UserRepository) Create(user *entities.User) (*entities.User, error) {
 	err := ur.db.Create(&userDTO)
 
 	if err != nil {
-		return nil, err
+		return err
 	}
 
 	// DTOをユーザエンティティに変換します．
-	return userDTO.ToUser(), nil
+	return nil
 }
 
 // FindById IDを元にユーザを返却します．
@@ -71,7 +71,7 @@ func (ur *UserRepository) FindAll() (entities.Users, error) {
 }
 
 // Update ユーザを更新します．
-func (ur *UserRepository) Update(user *entities.User) (*entities.User, error) {
+func (ur *UserRepository) Update(user *entities.User) error {
 	// ユーザエンティティをDTOに変換します．
 	userDTO := dtos.UserDTO{
 		UserId:            user.Id().ToPrimitive(),
@@ -85,11 +85,11 @@ func (ur *UserRepository) Update(user *entities.User) (*entities.User, error) {
 	err := ur.db.Updates(&userDTO)
 
 	if err != nil {
-		return nil, err
+		return err
 	}
 
 	// DTOをユーザエンティティに変換します．
-	return userDTO.ToUser(), nil
+	return nil
 }
 
 // Delete ユーザを削除します．

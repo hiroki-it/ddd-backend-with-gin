@@ -6,9 +6,9 @@ import (
 )
 
 type UserRepository interface {
-	Create(*entities.User) (*entities.User, error)
+	Create(*entities.User) error
 	FindById(ids.UserId) (*entities.User, error)
 	FindAll() (entities.Users, error)
-	Update(*entities.User) (*entities.User, error)
+	Update(*entities.User) error
 	Delete(ids.UserId) error
 }
