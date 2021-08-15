@@ -1,10 +1,10 @@
 package requests
 
-type GetUserRequest struct {
+type UserGetRequest struct {
 	UserId int `binding:"required,min=1"`
 }
 
-type CreateUserRequest struct {
+type UserCreateRequest struct {
 	UserId            int    // NOTE: 何も値を設定しないことにより，ゼロが割り当てられます．
 	UserLastName      string `json:"last_name" binding:"required"`
 	UserFirstName     string `json:"first_name" binding:"required"`
@@ -13,10 +13,10 @@ type CreateUserRequest struct {
 	UserGenderType    int    `json:"gender_type" binding:"required,min=1"`
 }
 
-type UpdateUserRequest struct {
+type UserUpdateRequest struct {
 	UserId int `json:"id" binding:"required,min=1"`
 }
 
-type DeleteUserRequest struct {
+type UserDeleteRequest struct {
 	UserId int `json:"id" binding:"required,min=1"`
 }

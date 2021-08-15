@@ -1,25 +1,25 @@
 package responses
 
-type GetUserResponse struct {
+type UserGetResponse struct {
 	UserId         int    `json:"id"`
 	UserName       string `json:"name"`
 	UserKanaName   string `json:"kana_name"`
 	UserGenderType string `json:"gender_type"`
 }
 
-type CreateUserResponse struct {
+type UserCreateResponse struct {
 	UserId         int    `json:"id"`
 	UserName       string `json:"name"`
 	UserKanaName   string `json:"kana_name"`
 	UserGenderType string `json:"gender_type"`
 }
 
-type UpdateUserResponse struct {
+type UserUpdateResponse struct {
 	UserId         int    `json:"id"`
 	UserName       string `json:"name"`
 	UserGenderType string `json:"gender_type"`
 }
 
-type DeleteUserResponse struct {
+type UserDeleteResponse struct {
 	UserId int `json:"id"`
 }

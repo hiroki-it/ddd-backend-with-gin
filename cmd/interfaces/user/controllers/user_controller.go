@@ -32,16 +32,16 @@ func (uc *UserController) GetUser(context *gin.Context) {
 		return
 	}
 
-	guRequest := &requests.GetUserRequest{UserId: userId}
+	guRequest := &requests.UserGetRequest{UserId: userId}
 
-	guResponse, err := uc.userInputBoundary.GetUser(guRequest)
+	userGetResponse, err := uc.userInputBoundary.GetUser(guRequest)
 
 	if err != nil {
 		uc.ErrorJSON(context, 400, []string{err.Error()})
 		return
 	}
 
-	context.JSON(200, guResponse)
+	context.JSON(200, userGetResponse)
 	return
 }
 
@@ -51,23 +51,23 @@ func (uc *UserController) GetUsers(context *gin.Context) {
 
 // CreateUser ユーザを作成します．
 func (uc *UserController) CreateUser(context *gin.Context) {
-	cuRequest := &requests.CreateUserRequest{}
+	userCreateRequest := &requests.UserCreateRequest{}
 
-	err := context.Bind(cuRequest)
+	err := context.Bind(userCreateRequest)
 
 	if err != nil {
 		uc.ErrorJSON(context, 400, []string{"Parameters are not found."})
 		return
 	}
 
-	cuResponse, err := uc.userInputBoundary.CreateUser(cuRequest)
+	userCreateResponse, err := uc.userInputBoundary.CreateUser(userCreateRequest)
 
 	if err != nil {
 		uc.ErrorJSON(context, 400, []string{err.Error()})
 		return
 	}
 
-	context.JSON(200, cuResponse)
+	context.JSON(200, userCreateResponse)
 	return
 }
 
