@@ -6,6 +6,6 @@ import (
 )
 
 type UserInputBoundary interface {
-	GetUser(*requests.UserGetRequest) (*responses.UserGetResponse, error)
 	CreateUser(*requests.UserCreateRequest) (*responses.UserCreateResponse, error)
+	GetUser(*requests.UserGetRequest) (*responses.UserGetResponse, error)
 }
