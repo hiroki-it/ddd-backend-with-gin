@@ -24,11 +24,11 @@ func NewUserInteractor(userRepository repositories.UserRepository) *UserInteract
 }
 
 // CreateUser ユーザを作成します．
-func (ui *UserInteractor) CreateUser(cuRequest *requests.UserCreateRequest) (*responses.UserCreateResponse, error) {
+func (ui *UserInteractor) CreateUser(userCreateRequest *requests.UserCreateRequest) (*responses.UserCreateResponse, error) {
 	user := entities.NewUser(
-		ids.UserId(cuRequest.UserId),
-		values.NewUserName(cuRequest.UserLastName, cuRequest.UserFirstName, cuRequest.UserLastKanaName, cuRequest.UserFirstKanaName),
-		values.UserGenderType(cuRequest.UserGenderType),
+		ids.UserId(userCreateRequest.UserId),
+		values.NewUserName(userCreateRequest.UserLastName, userCreateRequest.UserFirstName, userCreateRequest.UserLastKanaName, userCreateRequest.UserFirstKanaName),
+		values.UserGenderType(userCreateRequest.UserGenderType),
 	)
 
 	err := ui.userRepository.Create(user)
@@ -46,8 +46,8 @@ func (ui *UserInteractor) CreateUser(cuRequest *requests.UserCreateRequest) (*re
 }
 
 // GetUser ユーザを取得します．
-func (ui *UserInteractor) GetUser(guRequest *requests.UserGetRequest) (*responses.UserGetResponse, error) {
-	user, err := ui.userRepository.FindById(ids.UserId(guRequest.UserId))
+func (ui *UserInteractor) GetUser(userGetRequest *requests.UserGetRequest) (*responses.UserGetResponse, error) {
+	user, err := ui.userRepository.FindById(ids.UserId(userGetRequest.UserId))
 
 	if err != nil {
 		return nil, err
