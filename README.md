@@ -72,5 +72,5 @@ $ docker-compose run -d
 ツールとして，[air](https://github.com/cosmtrek/air) を使用いたしました．
 
 ```shell
-$ docker-compose run --rm app air -c .air.toml
+$ docker-compose exec app air -c .air.toml
 ```
