@@ -1,8 +1,13 @@
 # ddd-api-with-go-gin
 
-## 採用技術
+## 概要
 
 Clean-Arch，Go，Ginを学習するためのアプリケーションです．
+
+## 参考
+
+クリーンアーキテクチャについて：
+<br>https://hiroki-it.github.io/tech-notebook-mkdocs/software/software_application_architecture_backend_domain_driven_design_clean_architecture.html
 
 ## ディレクトリ構成
 
