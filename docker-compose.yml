@@ -60,7 +60,7 @@ services:
     networks:
       - default
     volumes:
-      - db_volume:/var/www/lib/mysql
+      - db_volume:/var/lib/mysql
 
 volumes:
   db_volume:
