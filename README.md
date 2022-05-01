@@ -1,4 +1,4 @@
-# ddd-api-with-go-gin
+# ddd-backend-with-gin
 
 ## 概要
 
