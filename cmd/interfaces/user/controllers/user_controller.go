@@ -4,9 +4,9 @@ import (
 	"strconv"
 
 	"github.com/gin-gonic/gin"
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/interfaces"
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/user/boundaries"
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/user/requests"
+	"github.com/hiroki-it/ddd-backend-with-gin/cmd/interfaces"
+	"github.com/hiroki-it/ddd-backend-with-gin/cmd/usecase/user/boundaries"
+	"github.com/hiroki-it/ddd-backend-with-gin/cmd/usecase/user/requests"
 )
 
 type UserController struct {

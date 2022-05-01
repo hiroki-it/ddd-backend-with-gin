@@ -1,6 +1,6 @@
 package values
 
-import "github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain"
+import "github.com/hiroki-it/ddd-backend-with-gin/cmd/domain"
 
 type UserName struct {
 	lastName      string

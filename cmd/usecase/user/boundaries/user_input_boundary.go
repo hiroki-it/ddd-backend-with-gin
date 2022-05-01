@@ -1,8 +1,8 @@
 package boundaries
 
 import (
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/user/requests"
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/user/responses"
+	"github.com/hiroki-it/ddd-backend-with-gin/cmd/usecase/user/requests"
+	"github.com/hiroki-it/ddd-backend-with-gin/cmd/usecase/user/responses"
 )
 
 type UserInputBoundary interface {

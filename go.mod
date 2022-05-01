@@ -1,4 +1,4 @@
-module github.com/hiroki-it/ddd-api-with-go-gin
+module github.com/hiroki-it/ddd-backend-with-gin
 
 go 1.16
 
@@ -9,4 +9,4 @@ require (
 	gorm.io/gorm v1.21.11
 )
 
-replace github.com/hiroki-it/ddd-api-with-go-gin => /
+replace github.com/hiroki-it/ddd-backend-with-gin => /

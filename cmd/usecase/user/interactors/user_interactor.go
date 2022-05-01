@@ -1,13 +1,13 @@
 package interactors
 
 import (
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/entities"
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/ids"
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/repositories"
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/values"
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/user/boundaries"
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/user/requests"
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/usecase/user/responses"
+	"github.com/hiroki-it/ddd-backend-with-gin/cmd/domain/user/entities"
+	"github.com/hiroki-it/ddd-backend-with-gin/cmd/domain/user/ids"
+	"github.com/hiroki-it/ddd-backend-with-gin/cmd/domain/user/repositories"
+	"github.com/hiroki-it/ddd-backend-with-gin/cmd/domain/user/values"
+	"github.com/hiroki-it/ddd-backend-with-gin/cmd/usecase/user/boundaries"
+	"github.com/hiroki-it/ddd-backend-with-gin/cmd/usecase/user/requests"
+	"github.com/hiroki-it/ddd-backend-with-gin/cmd/usecase/user/responses"
 )
 
 type UserInteractor struct {

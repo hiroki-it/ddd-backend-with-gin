@@ -1,10 +1,10 @@
 package dtos
 
 import (
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/entities"
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/ids"
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/domain/user/values"
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure"
+	"github.com/hiroki-it/ddd-backend-with-gin/cmd/domain/user/entities"
+	"github.com/hiroki-it/ddd-backend-with-gin/cmd/domain/user/ids"
+	"github.com/hiroki-it/ddd-backend-with-gin/cmd/domain/user/values"
+	"github.com/hiroki-it/ddd-backend-with-gin/cmd/infrastructure"
 )
 
 // UserDTO NOTE: 利便性のため，DTOはパブリックフィールドとします．

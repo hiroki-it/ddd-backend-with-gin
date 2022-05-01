@@ -4,11 +4,11 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure"
+	"github.com/hiroki-it/ddd-backend-with-gin/cmd/infrastructure"
 	"gorm.io/driver/mysql"
 	"gorm.io/gorm"
 
-	user "github.com/hiroki-it/ddd-api-with-go-gin/cmd/infrastructure/user/dtos"
+	user "github.com/hiroki-it/ddd-backend-with-gin/cmd/infrastructure/user/dtos"
 )
 
 // DB ORMのメソッドをラッピングしやすいように，ORMを構造体に保持するようにします．

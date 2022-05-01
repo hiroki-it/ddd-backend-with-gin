@@ -7,7 +7,7 @@ services:
     build:
       context: .
       dockerfile: build/app/Dockerfile
-    container_name: ddd-api-with-go-gin-app
+    container_name: ddd-backend-with-gin-app
     depends_on:
       - db
     env_file:
@@ -16,7 +16,7 @@ services:
     expose:
       # nginxから転送されたリクエストを受信
       - "8080"
-    image: ddd-api-with-go-gin-app:latest
+    image: ddd-backend-with-gin-app:latest
     hostname: app
     networks:
       - default
@@ -30,10 +30,10 @@ services:
       context: .
       dockerfile: build/web/Dockerfile
       target: develop
-    container_name: ddd-api-with-go-gin-web
+    container_name: ddd-backend-with-gin-web
     depends_on:
       - app
-    image: ddd-api-with-go-gin-web:latest
+    image: ddd-backend-with-gin-web:latest
     hostname: web
     ports:
       - "8001:80"
@@ -43,7 +43,7 @@ services:
   # dbコンテナ
   db:
     command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_general_ci
-    container_name: ddd-api-with-go-gin-db
+    container_name: ddd-backend-with-gin-db
     env_file:
       # NOTE: docker-compose.ymlで使用する変数を展開するために読み込む．
       - .env
@@ -68,4 +68,4 @@ volumes:
 
 networks:
   default:
-    name: ddd-api-with-go-gin
+    name: ddd-backend-with-gin
