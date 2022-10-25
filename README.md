@@ -6,8 +6,7 @@ Clean-Arch，Go，Ginを学習するためのアプリケーションです．
 
 ## 参考
 
-クリーンアーキテクチャについて：
-<br>https://hiroki-it.github.io/tech-notebook-mkdocs/software/software_application_architecture_backend_domain_driven_design_clean_architecture.html
+- [クリーンアーキテクチャについて](https://hiroki-it.github.io/tech-notebook-mkdocs/software/software_application_architecture_backend_domain_driven_design_clean_architecture.html)
 
 ## ディレクトリ構成
 
@@ -21,9 +20,7 @@ Clean-Arch，Go，Ginを学習するためのアプリケーションです．
 
 これに伴い，ユースケース層のインターラクターは，プレゼンターではなくレスポンスモデルを返却するようにしております．
 
-実装方法は以下に整理しております．
-
-参考：https://hiroki-it.github.io/tech-notebook-mkdocs/software/software_application_architecture_backend_domain_driven_design_clean_architecture.html
+実装方法は、[こちら](https://hiroki-it.github.io/tech-notebook-mkdocs/software/software_application_architecture_backend_domain_driven_design_clean_architecture.html)に整理しております．
 
 ```
 project
